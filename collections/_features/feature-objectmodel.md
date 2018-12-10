@@ -2,7 +2,7 @@
 order: 70
 title: "Typed object model"
 fa-icon: fas fa-sitemap
-readmore: "/nutshell/#typed-object-model"
+readmore: "/nutshell#typed-object-model"
 accent-color: info
 ---
 

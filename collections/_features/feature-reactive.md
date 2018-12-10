@@ -2,7 +2,7 @@
 order: 60
 title: "Reactive Programming for asynchronous event handling"
 fa-icon: fas fa-code
-readmore: "/nutshell/#reactive-programming-for-asynchronous-event-handling"
+readmore: "/nutshell#reactive-programming-for-asynchronous-event-handling"
 accent-color: info
 ---
 

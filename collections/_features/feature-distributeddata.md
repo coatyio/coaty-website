@@ -2,7 +2,7 @@
 order: 20
 title: "Distributed data anywhere - distributed command & control"
 fa-icon: fab fa-connectdevelop
-readmore: "/nutshell/#distributed-data-available-anywhere"
+readmore: "/nutshell#distributed-data-available-anywhere"
 accent-color: primary
 ---
 

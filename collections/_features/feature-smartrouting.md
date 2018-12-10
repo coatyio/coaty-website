@@ -2,7 +2,7 @@
 order: 30
 title: "Smart routing of IoT data based on context"
 fa-icon: fas fa-route
-readmore: "/nutshell/#smart-routing-of-iot-data"
+readmore: "/nutshell#smart-routing-of-iot-data"
 accent-color: primary
 ---
 

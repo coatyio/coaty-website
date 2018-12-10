@@ -2,7 +2,7 @@
 order: 50
 title: "Lightweight & modular architecture"
 fa-icon: fas fa-layer-group
-readmore: "/nutshell/#lightweight-and-modular-framework-architecture"
+readmore: "/nutshell#lightweight-and-modular-framework-architecture"
 accent-color: info
 ---
 

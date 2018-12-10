@@ -2,7 +2,7 @@
 order: 40
 title: "Incremental & dynamic scenario evolution"
 fa-icon: fas fa-random
-readmore: "/nutshell/#"
+readmore: "/nutshell"
 accent-color: primary
 ---
 

@@ -2,7 +2,7 @@
 order: 80
 title: "Works across languages and platforms - even in browsers"
 fa-icon: fas fa-globe
-readmore: "/nutshell/#works-across-languages-and-platforms"
+readmore: "/nutshell#works-across-languages-and-platforms"
 accent-color: info
 ---
 
