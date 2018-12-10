@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Siemens AG">
+    <meta name="description" content="Coaty is a lightweight open-source framework for building collaborative IoT applications on top  of your distributed autonomously acting devices, people, and services using powerful  communication event patterns for any-to-any collaboration.
+">
+    <meta name="keywords" content="industrial, IoT, lightweight, framework, autonomous, decentralized, distributed, collaborative, agent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="translucent">
+
+    <title>Coaty | In a Nutshell</title>
+
+    <!-- Custom CSS including Bootstrap 4 with custom Bootswatch theme, syntax theme, and custom Jekyll styles -->
+    <link rel="stylesheet" type="text/css" href="/_static/css/main.css">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" type="text/css" href="/_static/fonts/fontawesome-free-5.5.0-web/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/_assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/_assets/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/_assets/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/_assets/favicon-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/_assets/favicon-144.png">
+</head>
+
+<body class="site page-nutshell">
+    <header class="site-header">
+    
+    
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top" role="navigation">
+        <a class="navbar-brand" href="/">
+            <img src="/_assets/brand/coaty-logo.svg"
+                class="logo-short d-inline-block" alt="Coaty logo">
+            <img src="/_assets/brand/coaty-ext-logo-white.svg"
+                class="logo-long d-none" alt="Coaty logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-nav">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <a class="nav-item nav-link nutshell" href="/nutshell">In a Nutshell</a>
+            
+            
+            
+            
+            
+            <a class="nav-item nav-link docs" href="/docs">Documentation</a>
+            
+            
+            
+            
+            
+            <a class="nav-item nav-link news" href="/news">News</a>
+            
+            
+            </div>
+            <div class="navbar-nav ml-auto">
+                
+                <a class="nav-link" href="https://github.com/coatyio" target="_blank">
+                    <img src="/_assets/brand/github-icon.svg" height="26" class="d-inline-block" alt="Logo github">
+                </a>
+                
+                <a class="nav-link" href="https://www.npmjs.com/package/coaty" target="_blank">
+                    <img src="/_assets/brand/npm-square.svg" height="26" class="d-inline-block" alt="Logo npm">
+                </a>
+                
+            </div>
+        </div>
+    </nav>
+    
+    
+    
+    <div class="hero hero-sticky-top jumbotron bg-dark text-white" style="background-image:url('/_assets/brand/coaty-circle-gray.svg');">
+        <div class="container">
+            <h1 class="lead-1">In a Nutshell</h1>
+        </div>
+    </div>
+    
+</header>
+    <main class="site-content">
+        
+            
+            <section class="container document-markdown pb-5 pt-4">
+    <p>Using Coaty as a middleware, you can build distributed applications out of
+decentralized application components, so called Coaty agents, which are
+loosely coupled and communicate in (soft) real-time.</p>
+
+<p>Coaty removes the need for a central coordination authority by decoupling interaction
+between agents. You can dynamically add new agents and new features without distracting
+the existing system in order to adapt to your ever-changing scenarios.</p>
+
+<p>At its core, Coaty offers a standardized set of event-based communication patterns
+for Coaty agents to talk to each other by one-way/two-way and one-to-many/many-to-many
+communication flows without the need to know about each other.</p>
+
+<p>We think collaborative applications often have a natural need for such forms of
+interaction. Restricting interaction to strongly coupled one-to-one
+communication (classic request-response) quickly becomes complex, inflexible,
+and unmaintainable. Restricting interaction to loosely coupled one-way
+communication (classic publish-subscribe) lacks the power of transmitting
+information by both parties. Which is why Coaty combines the best of both worlds.</p>
+
+<p>The Coaty framework is easy to use, straightforward to port to different
+programming languages, and based on modern software engineering and technology
+standards.</p>
+
+<p>We believe Coaty is a major step forward in practice that allows developers
+to create more powerful collaborative applications with less complexity and in
+less time.</p>
+
+<h2 id="lightweight-and-modular-framework-architecture">Lightweight and modular framework architecture</h2>
+
+<p>Coaty embodies a modern software architecture with a shift in mindset from an
+imperative to a resource-oriented and declarative programming style:
+You express where and how things should be, not how things should be done.</p>
+
+<p>To achieve this, Coaty uses an object-oriented framework design with inversion
+of control (IoC), dependency injection (DI), and distributed lifecycle management
+(LM).</p>
+
+<p>Coaty provides a modular framework structure where you can choose from a
+set of core and specialized modules to achieve operational simplicity
+with minimal dependencies.</p>
+
+<p>Connecting to heterogenous IoT system landscapes is achieved by
+extensible environment connectors. Connectors serve as gateways
+to external networks, or bridges to connect to external systems.</p>
+
+<p>Coaty comes with an essential set of connectors to store and retrieve
+Coaty objects in SQL and noSQL database systems. These connectors provide
+a <em>Unified persistance API</em> for seamless storage and retrieval of distributed
+data with the Query-Retrieve communication event pattern as described
+<a href="#communication-event-patterns">here</a>.</p>
+
+<h3 id="set-up-your-agent">Set up your agent</h3>
+
+<p>To set up a Coaty agent, you define, configure, and bootstrap an IoC <em>container</em>
+with its <em>controllers</em> that encapsulate the agent’s application logic:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Define container components</span>
+<span class="kd">const</span> <span class="nx">components</span><span class="p">:</span> <span class="nx">Components</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">controllers</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nx">ProductionOrderController</span><span class="p">,</span>
+        <span class="nx">SupportTaskController</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// Configure container components</span>
+<span class="kd">const</span> <span class="na">configuration</span><span class="p">:</span> <span class="nx">Configuration</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">common</span><span class="p">:</span> <span class="p">{</span>
+         <span class="c1">// Common options shared by all container components</span>
+         <span class="na">agentInfo</span><span class="p">:</span> <span class="p">...</span> <span class="p">,</span>
+         <span class="p">...</span>
+    <span class="p">},</span>
+    <span class="na">communication</span><span class="p">:</span> <span class="p">{</span>
+          <span class="c1">// Options used for communication</span>
+          <span class="na">brokerUrl</span><span class="p">:</span> <span class="p">...</span> <span class="p">,</span>
+          <span class="p">...</span>
+    <span class="p">},</span>
+    <span class="na">controllers</span><span class="p">:</span> <span class="p">{</span>
+        <span class="c1">// Controller-specific configuration options</span>
+        <span class="na">ProductionOrderController</span><span class="p">:</span> <span class="p">{</span>
+            <span class="p">...</span>
+        <span class="p">},</span>
+        <span class="na">SupportTaskController</span><span class="p">:</span> <span class="p">{</span>
+            <span class="p">...</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="p">...</span>
+<span class="p">};</span>
+
+<span class="c1">// Bootstrap container</span>
+<span class="nx">Container</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">components</span><span class="p">,</span> <span class="nx">configuration</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="program-your-agents-application-logic">Program your agent’s application logic</h3>
+
+<p>Controller classes realize custom application logic of a Coaty agent by:</p>
+
+<ul>
+  <li>exchanging object data with other agent controllers,</li>
+  <li>providing observable state to the application views,</li>
+  <li>providing methods for lifecycle management.</li>
+</ul>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">SupportTaskController</span> <span class="kd">extends</span> <span class="nx">Controller</span> <span class="p">{</span>
+
+    <span class="cm">/* Lifecycle methods called by framework */</span>
+
+    <span class="nx">onInit</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// Define initializations here</span>
+    <span class="p">}</span>
+
+    <span class="nx">onCommunicationManagerStarting</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// Set up observations for incoming communication events here</span>
+    <span class="p">}</span>
+
+    <span class="nx">onCommunicationManagerStopping</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// Clean up observations for incoming communication events here</span>
+    <span class="p">}</span>
+
+    <span class="cm">/* Business logic methods */</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>For communication, controllers utilize the <em>communication manager</em>, a
+component that is an integral part of each IoC container. It provides a
+set of methods to publish and observe communication events asynchronously.</p>
+
+<p>You can use the communication manager without the need to understand
+and deal with details of the underlying publish-subscribe messaging protocol,
+including auto-reconnect, automatic re-subscription upon connection, and
+queued offline publishing.</p>
+
+<h3 id="reactive-programming-for-asynchronous-event-handling">Reactive Programming for asynchronous event handling</h3>
+
+<p>Reactive Programming (RP) is a paradigm for asynchronous programming with
+observable data streams. It is a combination of the best ideas from
+the Observer software design pattern, the Iterator pattern, and
+functional programming.</p>
+
+<p>Coaty adopts RP to handle incoming asynchronous communication events in
+context. You can process each event where needed according to the structure
+of your business logic, rather than having to implement a central event
+dispatching logic yourself.</p>
+
+<p>RP also raises the level of abstraction of your code, so you
+can focus on the interdependence of events rather than having to constantly
+cope with a large amount of implementation details. Code in RP will be more
+concise and clear by hiding asynchronous issues such as low-level threading,
+synchronization and concurreny.</p>
+
+<p>Reactive Programming libraries are ubiquitously available for a
+variety of programming languages and platforms. Coaty JavaScript, our
+reference framework implementation uses the <a href="http://reactivex.io/">RxJS</a>
+library. You can find examples and explanations on the
+<a href="https://www.learnrxjs.io/">Learn RxJS</a> website.</p>
+
+<p><a name="reactive-programming-examples"></a>
+Using RxJS observables in a Coaty controller is as simple as that:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Observe all incoming Advertise events for Task objects with status 'Done' */</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">communicationManager</span>
+    <span class="p">.</span><span class="nx">observeAdvertiseWithCoreType</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">identity</span><span class="p">,</span> <span class="s2">"Task"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+        <span class="nx">map</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span> <span class="k">as</span> <span class="nx">Task</span><span class="p">),</span>
+        <span class="nx">filter</span><span class="p">(</span><span class="nx">task</span> <span class="o">=&gt;</span> <span class="nx">task</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="nx">TaskStatus</span><span class="p">.</span><span class="nx">Done</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">task</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Task done:"</span><span class="p">,</span> <span class="nx">task</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+    <span class="p">});</span>
+</code></pre></div></div>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Discover machine information for a given machine ID */</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">communicationManager</span>
+    <span class="p">.</span><span class="nx">publishDiscover</span><span class="p">(</span><span class="nx">DiscoverEvent</span><span class="p">.</span><span class="nx">withExternalId</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">identity</span><span class="p">,</span> <span class="nx">machineId</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+        <span class="nx">first</span><span class="p">(),</span>
+        <span class="nx">map</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span><span class="p">)</span>
+        <span class="nx">timeout</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span>
+        <span class="nx">info</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Machine info:"</span><span class="p">,</span> <span class="nx">info</span><span class="p">);</span>
+        <span class="p">},</span>
+        <span class="nx">error</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="c1">// No response has been received within the given timeout period</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">logError</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="s2">"Failed to discover machine"</span><span class="p">);</span>
+        <span class="p">});</span>
+</code></pre></div></div>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Handle both discovered and advertised tasks in context as they are received */</span>
+
+<span class="kd">const</span> <span class="nx">discoveredTasks</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">communicationManager</span>
+    <span class="p">.</span><span class="nx">publishDiscover</span><span class="p">(</span><span class="nx">DiscoverEvent</span><span class="p">.</span><span class="nx">withObjectTypes</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">identity</span><span class="p">,</span> <span class="p">[</span><span class="s2">"com.mycompany.myproject.SupportTask"</span><span class="p">]))</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+        <span class="nx">filter</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="o">!!</span><span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span><span class="p">),</span>
+        <span class="nx">map</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span> <span class="k">as</span> <span class="nx">SupportTask</span><span class="p">)</span>
+    <span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">advertisedTasks</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">communicationManager</span>
+    <span class="p">.</span><span class="nx">observeAdvertiseWithObjectType</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">identity</span><span class="p">,</span> <span class="s2">"com.mycompany.myproject.SupportTask"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+        <span class="nx">map</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span> <span class="k">as</span> <span class="nx">SupportTask</span><span class="p">)</span>
+    <span class="p">);</span>
+
+<span class="k">return</span> <span class="nx">merge</span><span class="p">(</span><span class="nx">discoveredTasks</span><span class="p">,</span> <span class="nx">advertisedTasks</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">task</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                <span class="c1">// Handle both discovered and advertised tasks in one single place...</span>
+            <span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="typed-object-model">Typed Object Model</h2>
+
+<p>You can model your domain data with Coaty’s platform-agnostic typed object model.
+It provides an extensible hierarchy of core object types for distributed data exchange:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CoatyObject
+  |
+  |-- User
+  |-- Device
+  |-- Component
+  |-- Annotation
+  |-- Task
+  |-- Location
+  |-- Log
+  |-- Snapshot
+  |
+  |-- IoSource
+  |-- IoActor
+  |
+  |-- Sensor
+  |-- Thing
+  |-- Observation
+  |-- FeatureOfInterest
+</code></pre></div></div>
+
+<p>Coaty objects are JSON (JavaScript Object Notation) compatible to be easily interoperable
+between languages and platforms. As such, Coaty objects solely represent property - value
+pairs that model state but no behavior.</p>
+
+<p>Coaty objects can be persisted schemalessly in NoSQL and SQL data stores using the
+Unified Persistance API of the framework.</p>
+
+<p>The base <code class="language-html highlighter-rouge">CoatyObject</code> interface defines the following generic properties:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">CoatyObject</span> <span class="p">{</span>
+
+  <span class="c1">// Base core type</span>
+  <span class="nl">coreType</span><span class="p">:</span> <span class="s2">"CoatyObject"</span> <span class="o">|</span> <span class="s2">"User"</span> <span class="o">|</span> <span class="s2">"Device"</span> <span class="o">|</span> <span class="p">...</span> <span class="p">;</span>
+
+  <span class="c1">// Concrete type name</span>
+  <span class="nl">objectType</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+
+  <span class="c1">// A descriptive name for the object</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+
+  <span class="c1">// Unique identity of the object</span>
+  <span class="nl">objectId</span><span class="p">:</span> <span class="nx">Uuid</span><span class="p">;</span>
+
+  <span class="c1">// Identity of an object relative to an external system (optional)</span>
+  <span class="nx">externalId</span><span class="p">?:</span> <span class="nx">string</span><span class="p">;</span>
+
+  <span class="c1">// Object ID of parent object (optional)</span>
+  <span class="nx">parentObjectId</span><span class="p">?:</span> <span class="nx">Uuid</span><span class="p">;</span>
+
+  <span class="c1">// Object ID of User object this object has been assigned (optional)</span>
+  <span class="nx">assigneeUserId</span><span class="p">?:</span> <span class="nx">Uuid</span><span class="p">;</span>
+
+  <span class="c1">// Object ID of associated Location object (optional)</span>
+  <span class="nx">locationId</span><span class="p">?:</span> <span class="nx">Uuid</span><span class="p">;</span>
+
+  <span class="c1">// Indicates whether object is no longer in use (optional)</span>
+  <span class="nx">isDeactivated</span><span class="p">?:</span> <span class="kr">boolean</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>To enable the distributed system architecture to uniquely identify an object
+without central coordination, each object has a universally unique object
+identifier (UUID).</p>
+
+<p>To define a domain-specific object type, simply extend one of the core object
+types with additional properties and specify a canonical object type name:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">enum</span> <span class="nx">SupportTaskUrgency</span> <span class="p">{</span>
+    <span class="nx">Low</span><span class="p">,</span>
+    <span class="nx">Medium</span><span class="p">,</span>
+    <span class="nx">High</span><span class="p">,</span>
+    <span class="nx">Critical</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">SupportTask</span> <span class="kd">extends</span> <span class="nx">Task</span> <span class="p">{</span>
+    <span class="nl">coreType</span><span class="p">:</span> <span class="s2">"Task"</span><span class="p">,</span>
+    <span class="nx">objectType</span><span class="p">:</span> <span class="s2">"com.mycompany.myproject.SupportTask"</span><span class="p">;</span>
+
+    <span class="c1">// Level of urgency of a support task</span>
+    <span class="nl">urgency</span><span class="p">:</span> <span class="nx">SupportTaskUrgency</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="communication-foundation">Communication foundation</h2>
+
+<p>Coaty reaches distributed system flexibility by decoupling communication endpoints,
+but maintaining all types of communication flows.</p>
+
+<p><img src="/_assets/nutshell/nutshell-communication-foundation.png" alt="Communication foundation" /></p>
+
+<p>Coaty uses event-based communication flows with one-way/two-way and one-to-many/many-to-many
+event patterns to realize decentralized prosumer scenarios. Thereby, Coaty combines the
+characteristics of both classic request-response and publish-subscribe communication.</p>
+
+<p>One of the unique features of Coaty communication is the fact that a single request in principal
+can yield multiple responses over time, even from the same responder. The use case specific
+logic implemented by the requester determines how to handle such responses. For example,
+the requester can decide to</p>
+
+<ul>
+  <li>just take the first response and ignore all others,</li>
+  <li>only take responses received within a given time interval,</li>
+  <li>handle any response over time, or</li>
+  <li>process responses as defined by any other application-specific logic.</li>
+</ul>
+
+<p>Using this “open channel” communication, you can realize advanced interaction scenarios in a very
+simple way. For example, a Query event responder could re-execute the database query
+and publish a Retrieve event with the latest results every time the concerned storage area
+is updated. In this way, inefficient database polling is replaced by an efficient
+push-based approach.</p>
+
+<h3 id="communication-event-patterns">Communication event patterns</h3>
+
+<p>Coaty provides a set of event-based communication patterns to discover, query,
+share, and update data on demand in a distributed system. You can also
+perform remote operations by issuing one-to-many or many-to-many
+remote procedure call events.</p>
+
+<p><img src="/_assets/nutshell/nutshell-communication-event-patterns.png" alt="Communication event patterns" /></p>
+
+<p>Coaty’s standardized communication protocol is build on top of
+exchangeable open-standard publish-subscribe (pub/sub) messaging protocols such as
+<a href="http://mqtt.org/">MQTT</a> or <a href="https://wamp-proto.org/">WAMP</a>.</p>
+
+<p>With the help of Reactive Programming, all Coaty event patterns are programmed
+in a simple, uniform way. You can find some examples in the section on
+<a href="#reactive-programming-examples">Reactive Programming</a>. For details and advanced
+use cases, take a look at the <a href="https://coatyio.github.io/coaty-js/man/developer-guide/#communication-event-patterns">Coaty JS Developer Guide</a>.</p>
+
+<h2 id="smart-routing-of-iot-data">Smart routing of IoT data</h2>
+
+<p>Coaty provides what we call <em>Smart Routing</em> of IoT (sensor) data,
+where data is dynamically routed from sources to actors, i.e. consumers
+based on context. Backpressure strategies
+that enable data transfer rate controlled publishing of data are
+negotiated between sources and actors.</p>
+
+<p>Smart routing ensures that IoT data events published by sources are
+dispatched only to the currently relevant actors, depending on
+application-specific context logic which is defined by a set of rules.
+Coaty’s rule engine evaluates these rules and updates associations
+between sources and actors accordingly.</p>
+
+<p>For details, take a look at the <a href="https://coatyio.github.io/coaty-js/man/developer-guide/#io-routing">Coaty JS Developer Guide</a>.</p>
+
+<h2 id="works-across-languages-and-platforms">Works across languages and platforms</h2>
+
+<p>Coaty is designed with interoperability in mind. It can be easily
+ported to a variety of programming languages and platforms because of its
+layered and modular architecture and its lightweight technology stack:</p>
+
+<ul>
+  <li>a library for Reactive Programming, such as the Rx* library family,</li>
+  <li>a pub/sub messaging client, such as an MQTT or WAMP library,
+with a JSON serializer.</li>
+</ul>
+
+<p><a href="https://github.com/coatyio/coaty-js">Coaty JS</a> is the <em>reference
+implementation</em> of the Coaty framework. It works across platforms and is
+targeted at JavaScript/TypeScript, running as mobile and web apps in the browser,
+or as Node.js services. Coaty JS provides a complete set of features as described
+in the <a href="https://coatyio.github.io/coaty-js/man/developer-guide/">Developer Guide</a>.</p>
+
+<p>Coaty JS is intended to be used as reference for porting Coaty to new programming languages
+and platforms. We intend to make additional framework implementations available as open source.
+For example, a <a href="https://unity3d.com">Unity</a> implementation for programming
+collaborative Augmented Reality and Virtual Reality applications is in the works.</p>
+
+<h2 id="ready-to-use">Ready to use</h2>
+
+<p>Get started with Coaty by using its best practice examples as
+application skeleton. In addition, Coaty comes with all you
+need to know: a developer guide, coding style guide, and
+complete framework source code documentation.</p>
+
+<p>Details can be found on the <a href="/docs">Documentation</a> page.</p>
+
+</section>
+            
+        
+    </main>
+    <footer class="site-footer bg-dark">
+    <div class="container text-muted small">
+        <div class="row pb-1">
+            <div class="col-lg-5 text-center text-lg-left">
+                © Siemens AG, 2018
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <i class="far fa-envelope"></i>&nbsp;
+                <a href="mailto:coaty@gmail.com">Contact</a>
+            </div>
+            <div class="col-lg-7 text-center text-lg-left">
+                <ul class="list-inline mb-0">
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="/legal#corporate-information">Corporate Information</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">&sdot;</li>
+                    
+                    <li class="list-inline-item">
+                        <a href="/legal#privacy-policy">Privacy Policy</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">&sdot;</li>
+                    
+                    <li class="list-inline-item">
+                        <a href="/legal#cookie-policy">Cookie Policy</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">&sdot;</li>
+                    
+                    <li class="list-inline-item">
+                        <a href="/legal#terms-of-use">Terms of Use</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-5 text-center text-lg-left ">
+                Code licensed <a href="https://opensource.org/licenses/MIT">MIT</a>, documentation <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+
+            </div>
+            <div class="col-lg-7 text-center text-lg-left">
+                Based on <a href="https://bootswatch.com/">Bootswatch</a>, <a href="https://fontawesome.com">Font Awesome</a>, <a href="https://fonts.google.com/">Google Web Fonts</a>. Hosted on <a href="https://github.com/">GitHub</a>.
+
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="/_static/js/jquery.min.js"></script>
+
+<script src="/_static/js/bootstrap.bundle.min.js"></script>
+
+<script src="/_static/js/main.js"></script>
+</body>
+
+</html>

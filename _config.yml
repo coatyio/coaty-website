@@ -1,0 +1,71 @@
+# Site Config
+
+baseurl: ""
+
+# Build settings
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    default_lang: html
+    css_class: 'highlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: false
+      start_line: 1
+
+strict_front_matter: true
+
+destination: docs
+
+include:
+  - _assets
+  - _static
+
+exclude: 
+  - README.md
+
+# Defaults
+
+permalink: /:categories/:slug
+
+collections_dir: collections
+
+collections:
+  docs-coaty-js:
+  docs-essentials:
+  features:
+  testimonials:
+  usecases:
+  legal:
+  posts:
+    # Posts always generate separate pages, cannot prevent by setting to false
+    output: false
+  pages:
+    output: true
+    permalink: /:slug
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "default"
+      permalink: /:categories/:year-:month-:day-:title
+  -
+    scope:
+      path: "_pages"
+      type: "pages"
+    values:
+      layout: "default"
+  -
+    scope:
+      path: "_pages/home.md"
+      type: "pages"
+    values:
+      permalink: index

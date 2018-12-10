@@ -1,0 +1,12 @@
+<section class="container pb-5 pt-4">
+    {% for post in site.posts reversed %}
+    {% if post.categories contains include.collection %}
+    <h4>{{ post.title }}</h4>
+    <small class="text-muted">{{ post.date | date: "%B %e, %Y" }}</small>
+    <div class="mt-2 mb-2">{{ post.content | markdownify }}</div>
+    {% unless forloop.last %}
+    <hr>
+    {% endunless %}
+    {% endif %}
+    {% endfor %}
+</section>

@@ -1,0 +1,258 @@
+/*! Copyright (c) 2018 Siemens AG. Licensed under the MIT License. */
+
+/* Bootswatch custom Coaty theme with Bootstrap v4.1.3 */
+@import "bootstrap.min.css";
+
+/* Syntax highlighing style  */
+@import "syntax.css";
+
+/* Custom Coaty Jekyll theme */
+
+.display {
+    font-weight: 300 !important;
+}
+
+.lead-1 {
+    font-weight: 300 !important;
+    font-size: 2.5rem;
+}
+
+.lead-2 {
+    font-weight: 300 !important;
+    font-size: 2rem;
+}
+
+.lead-4 {
+    font-weight: 300 !important;
+    font-size: 1rem;
+}
+
+.carousel-caption {
+    background-color: rgba(45, 55, 60, 0.6);
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.carousel {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.highlight pre {
+    padding-left: 4px;
+}
+
+.document-markdown {
+    max-width: 800px;
+}
+
+.page-nutshell .site-header .hero .container {
+    max-width: 800px;
+}
+
+.document-markdown h1,
+.document-markdown h2,
+.document-markdown h3,
+.document-markdown h4,
+.document-markdown h5,
+.document-markdown h6 {
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+}
+
+.document-markdown h1,
+.document-markdown h2 {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.document-markdown img {
+    background-color: #ebf0f5;
+    max-width: 100%;
+    height: auto;
+}
+
+.card-flip > div {
+    backface-visibility: hidden;
+    transition: transform 400ms;
+    transition-timing-function: linear;
+}
+
+.card-front {
+    transform: rotateX(0deg);
+}
+
+.card-front > i {
+    padding-top: 1.5rem;
+}
+
+.card-front > .icon {
+    height: 4rem;
+    width: auto;
+    margin-top: 1.5rem;
+}
+
+.card-back {
+    transform: rotateX(180deg);
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+}
+
+.card-back > .card-body {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-back > .card-body:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3rem;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 80%);
+}
+
+.card-back > .readmore {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+}
+
+.card-flip:hover .card-front {
+    transform: rotateX(-180deg);
+}
+
+.card-flip:hover .card-back {
+    transform: rotateX(0deg);
+}
+
+.navbar-brand {
+    font-size: 1rem;
+}
+
+.navbar-brand img {
+    height: 30px;
+}
+
+.hero {
+    background-origin: border-box;
+    background-size: 380px auto;
+    background-repeat: no-repeat;
+}
+
+.hero-fixed-top {
+    /* Force padding for all media sizes, to offset navbar correctly. */
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+    margin-bottom: 0;
+    background-position: calc(100% + 60px) 56px;
+}
+
+.hero-sticky-top {
+    /* Force padding for all media sizes, to offset navbar correctly. */
+    padding-top: 1.8125rem;
+    padding-bottom: 1rem;
+    margin-bottom: 0;
+    background-position: calc(100% + 60px) 5px;
+}
+
+.hero .logo {
+    height: 5rem;
+}
+  
+.stack .stack-item img {
+    width: auto;
+    height: 6rem;
+    max-height: 6rem;
+}
+
+.tiles .tile-img {
+    max-width: 270px;
+    height: auto;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .tiles .tile-img {
+    max-width: calc(100% - 2*15px);
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+} 
+
+.legal p {
+    text-align: justify !important;
+}
+
+.site-footer {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.site-footer a {
+    color: #adbecd;
+}
+
+/* Bottom-aligned footer */
+
+.site {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; 
+}
+
+.site-header, 
+.site-footer {
+  flex-shrink: 0;
+}
+
+.site-content {
+  flex: 1 0 auto;
+}
+
+/* Scrollbars - webkit and IE */
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color:#697882;
+    border: none;
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ebf0f5;
+}
+
+::-webkit-scrollbar-track-piece {
+    display: none;
+}
+
+::-webkit-scrollbar-corner {
+    display: none;
+}
+
+::-webkit-resizer {
+    display: none;
+}
+
+/* IE */
+body {
+    scrollbar-face-color: #697882;
+    scrollbar-arrow-color: #697882;
+    scrollbar-track-color: #ebf0f5;
+    scrollbar-shadow-color: #697882;
+    scrollbar-highlight-color: #697882;
+    scrollbar-3dlight-color: #697882;
+    scrollbar-darkshadow-color: #697882;
+}

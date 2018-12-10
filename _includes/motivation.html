@@ -1,0 +1,26 @@
+{% assign bgclass = '' %}
+{% if include.highlight == true %}
+{% assign bgclass = 'bg-light' %}
+{% endif %}
+<section class="container {{ bgclass }} pt-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h4 class="text-secondary text-center font-italic mb-4">{{ site.data.site.motivation.headline }}</h4>
+        </div>
+    </div>
+    <hr class="mt-0 mb-4">
+</section>
+<section class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 d-flex flex-column align-items-center mb-4">
+            <div class="text-uppercase font-weight-bold mb-1">{{ site.data.site.motivation.trend-before-header | markdownify | remove: '<p>' | remove: '</p>' }}</div>
+            <div class="text-muted mb-4">{{ site.data.site.motivation.trend-before-footer | markdownify | remove: '<p>' | remove: '</p>' }}</div>
+            <img class="img-fluid mb-3" src="{{ '/_assets/brand/coaty-trend-from.svg' | relative_url }}" alt="">
+        </div>
+        <div class="col-md-6 d-flex flex-column align-items-center mb-4">
+            <div class="text-uppercase font-weight-bold mb-1">{{ site.data.site.motivation.trend-with-header | markdownify | remove: '<p>' | remove: '</p>' }}</div>
+            <div class="text-muted mb-4">{{ site.data.site.motivation.trend-with-footer | markdownify | remove: '<p>' | remove: '</p>' }}</div>
+            <img class="img-fluid mb-3" src="{{ '/_assets/brand/coaty-trend-to.svg' | relative_url }}" alt="">
+        </div>
+    </div>
+</section>

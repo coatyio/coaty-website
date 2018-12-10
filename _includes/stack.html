@@ -1,0 +1,28 @@
+{% assign bgclass = '' %}
+{% if include.highlight == true %}
+{% assign bgclass = 'bg-light' %}
+{% endif %}
+<section class="stack {{ bgclass }}">
+    <div class="container pb-3">
+        <h2 class="text-center pt-4 mb-4">{{ site.data.site.collections[include.collection].title }}</h2>
+        <div class="row">
+            {% assign sorted-collection = site[include.collection] | sort: 'order' %}
+            {% for item in sorted-collection %}
+            <div class="col-md">
+                <div class="stack-item mx-auto mb-4 d-flex flex-column align-items-center">
+                    <a href="{{ item.link }}" target="_blank">
+                        <img class="img-fluid" src="{{ '/_assets/' | relative_url | append: include.collection | append: '/' | append: item.img }}" alt="">
+                    </a>
+                    {% assign quote = item.content | markdownify | remove: '<p>' | remove: '</p>' | strip %}
+                    {% unless quote == '' %}
+                    <blockquote class="blockquote text-center font-weight-light lead-4 mt-2">
+                        <p class="mb-0"><q>{{ quote }}</q></p>
+                        <!-- <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer> -->
+                    </blockquote>
+                    {% endunless %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

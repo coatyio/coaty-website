@@ -1,0 +1,22 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+
+<body class="site {{ 'page-' | append: page.slug }}">
+    {% include header.html %}
+    <main class="site-content">
+        {% if page.includes %}
+            {% for inc in page.includes %}
+            {% include {{ inc.file }} highlight=inc.highlight collection=inc.collection %}
+            {% endfor %}
+        {% else %}
+            {% include document.html %}
+        {% endif %}
+    </main>
+    {% include footer.html %}
+    {% include scripts.html %}
+</body>
+
+</html>

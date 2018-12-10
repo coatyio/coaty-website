@@ -1,0 +1,35 @@
+<footer class="site-footer bg-dark">
+    <div class="container text-muted small">
+        <div class="row pb-1">
+            <div class="col-lg-5 text-center text-lg-left">
+                {{ site.data.site.copyright | markdownify | remove: '<p>' | remove: '</p>' }}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <i class="far fa-envelope"></i>&nbsp;
+                <a href="mailto:{{ site.data.site.contactemail }}">{{ site.data.site.contact }}</a>
+            </div>
+            <div class="col-lg-7 text-center text-lg-left">
+                <ul class="list-inline mb-0">
+                    {% assign ordered_legal = site.legal | sort:"order" %}
+                    {% for legal in ordered_legal %}
+                    {% assign stitle = legal.title | slugify | prepend: '/legal#' %}
+                    {% assign stitle = stitle | relative_url %}
+                    {% unless forloop.first %}
+                    <li class="list-inline-item">&sdot;</li>
+                    {% endunless %}
+                    <li class="list-inline-item">
+                        <a href="{{ stitle }}">{{ legal.title }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-5 text-center text-lg-left ">
+                {{ site.data.site.licenses | markdownify | remove: '<p>' | remove: '</p>' }}
+            </div>
+            <div class="col-lg-7 text-center text-lg-left">
+                {{ site.data.site.credits | markdownify | remove: '<p>' | remove: '</p>' }}
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,59 @@
+{% assign bgclass = '' %}
+{% if include.highlight == true %}
+{% assign bgclass = 'bg-light' %}
+{% endif %}
+<section class="tiles {{ bgclass }}">
+    <h2 class="container text-center pt-4">{{ site.data.site.collections[include.collection].title }}</h2>
+    {% assign moretext = site.data.site.collections[include.collection].more-text %}
+    {% assign sorted-collection = site[include.collection] | sort: 'order' %}
+    {% for item in sorted-collection %}
+    {% assign imgsrc = '/_assets/' | relative_url | append: include.collection | append: '/' | append: item.img %}
+    {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
+    <div class="container">
+        <div class="row py-4">
+            {% if thecycle == 'odd' %}
+            <div class="col-md-7 text-center text-md-left">
+                <h3>{{ item.title }}</h3>
+                <img class="tile-img d-block d-md-none mx-auto" src="{{ imgsrc }}" alt="">
+                {{ item.content | markdownify }}
+                {% if item.readmore %}
+                {% assign rmref = item.readmore | relative_url %}
+                <div class="d-flex justify-content-center justify-content-md-start">
+                    <a class="btn btn-primary" href="{{ rmref }}" role="button">{{ moretext}}</a>
+                </div>
+                {% endif %}
+                {% if item.readmore-external %}
+                <div class="d-flex justify-content-center justify-content-md-start">
+                    <a class="btn btn-primary" href="{{ rmref }}" role="button" target="_blank">{{ moretext }}</a>
+                </div>
+                {% endif %}
+            </div>
+            <div class="col-md-5 d-none d-md-block">
+                <img class="tile-img d-block mx-auto" src="{{ imgsrc }}" alt="">
+            </div>
+
+            {% else %}
+            <div class="col-md-5 d-none d-md-block">
+                <img class="tile-img d-block mx-auto" src="{{ imgsrc }}" alt="">
+            </div>    
+            <div class="col-md-7 text-center text-md-left">
+                <h3>{{ item.title }}</h3>
+                <img class="tile-img d-block d-md-none mx-auto" src="{{ imgsrc }}" alt="">
+                {{ item.content | markdownify }}
+                {% if item.readmore %}
+                {% assign rmref = item.readmore | relative_url %}
+                <div class="d-flex justify-content-center justify-content-md-start">
+                    <a class="btn btn-primary" href="{{ rmref }}" role="button">{{ moretext }}</a>
+                </div>
+                {% endif %}
+                {% if item.readmore-external %}
+                <div class="d-flex justify-content-center justify-content-md-start">
+                    <a class="btn btn-primary" href="{{ rmref }}" role="button" target="_blank">{{ moretext }}</a>
+                </div>
+                {% endif %}
+            </div>
+           {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</section>

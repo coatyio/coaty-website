@@ -1,0 +1,59 @@
+# Site Data
+
+title: Coaty
+tagline: "The lightweight open-source framework for Collaborative IoT"
+slogan: "Build collaborative applications in an autonomous, distributed, and decentralized fashion."
+poweredby_text: "... powered by"
+poweredby_link: "https://siemens.com"
+
+author: "Siemens AG"
+
+description: > # "description for site will appear in head meta data for use by SEO; max. 250 chars"
+  Coaty is a lightweight open-source framework for building collaborative IoT applications on top 
+  of your distributed autonomously acting devices, people, and services using powerful 
+  communication event patterns for any-to-any collaboration.
+
+keywords: industrial, IoT, lightweight, framework, autonomous, decentralized, distributed, collaborative, agent
+
+copyright: "&copy; Siemens AG, 2018"
+licenses: Code licensed [MIT](https://opensource.org/licenses/MIT), documentation [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)
+
+contact: "Contact"
+contactemail: "coaty@gmail.com"
+
+credits: "Based on [Bootswatch](https://bootswatch.com/), [Font Awesome](https://fontawesome.com), [Google Web Fonts](https://fonts.google.com/). Hosted on [GitHub](https://github.com/)."
+
+learnmore: "Learn more"
+
+navigation-icons:
+  github:
+    link: "https://github.com/coatyio"
+    icon: "/_assets/brand/github-icon.svg"
+  npm:
+    link: "https://www.npmjs.com/package/coaty"
+    icon: "/_assets/brand/npm-square.svg"
+
+collections:
+  docs-coaty-js:
+    title: "Learn how to use Coaty JS"
+    more-text: "Open"
+  docs-essentials:
+    title: "Essentials"
+    more-text: "Open"
+  features:
+    title: "Key features"
+    more-text: "Read more"
+  testimonials:
+    title: "Our partners"
+  usecases:
+    title: "Use cases"
+
+motivation:
+  headline: >
+    Coaty enables powerful any-to-any collaboration between your 
+    autonomously acting IoT devices, people, and services in 
+    ever-changing scenarios.
+  trend-before-header: "Before Coaty"
+  trend-with-header: "With Coaty"
+  trend-before-footer: "Cloud centric & hierarchical IoT"
+  trend-with-footer: "Decentralized & non-hierarchical IoT"

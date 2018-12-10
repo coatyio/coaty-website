@@ -1,0 +1,66 @@
+<header class="site-header">
+    {% assign navtop = 'fixed-top' %}
+    {% if page.navstickytop %}
+    {% assign navtop = 'sticky-top' %}
+    {% endif %}
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark {{ navtop }}" role="navigation">
+        <a class="navbar-brand" href="{{ '/' | relative_url }}">
+            <img src="{{ '/_assets/brand/coaty-logo.svg' | relative_url }}"
+                class="logo-short d-inline-block" alt="Coaty logo">
+            <img src="{{ '/_assets/brand/coaty-ext-logo-white.svg' | relative_url }}"
+                class="logo-long d-none" alt="Coaty logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-nav">
+            {% assign ordered_pages = site.pages | sort:"navorder" %}
+            {% for page in ordered_pages %}
+            {% if page.navorder >= 0 %}
+            {% assign pageref = page.slug | prepend: '/' %}
+            {% assign pageref = pageref | relative_url %}
+            <a class="nav-item nav-link {{ page.slug }}" href="{{ pageref }}">{{ page.title }}</a>
+            {% endif %}
+            {% endfor %}
+            </div>
+            <div class="navbar-nav ml-auto">
+                {% for item in site.data.site.navigation-icons %}
+                <a class="nav-link" href="{{ item[1].link }}" target="_blank">
+                    <img src="{{ item[1].icon | relative_url }}" height="26" class="d-inline-block" alt="Logo {{ item[0] }}">
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </nav>
+    
+    {% assign bgimgsrc= '/_assets/brand/coaty-circle-gray.svg' | relative_url %}
+    {% if page.slug == 'home' %}
+    <div class="hero hero-{{ navtop }} jumbotron bg-dark text-white" style="background-image:url('{{ bgimgsrc }}');">  
+        <div class="container">
+            <img src="{{ '/_assets/brand/coaty-ext-logo-white.svg' | relative_url }}" 
+            class="d-inline logo" alt="Coaty">
+            <div class="d-inline-block align-middle ml-4">
+                <div class="d-inline align-baseline">{{ site.data.site.poweredby_text }}&nbsp;</div>
+                <a href="{{ site.data.site.poweredby_link }}" target="_blank">
+                    <img src="{{ '/_assets/brand/sie-logo.png' | relative_url }}" 
+                    class="d-inline align-baseline" alt="Powered by Siemens">
+                </a>
+            </div>
+            <p class="lead-2 mt-3 mb-4">{{ site.data.site.tagline }}</p>
+            <p class="lead">{{ site.data.site.slogan }}</p>
+            <p>
+                <a class="btn btn-secondary" href="{{ '/nutshell' | relative_url }}" role="button">{{ site.data.site.learnmore }}</a>
+            </p>
+        </div>
+    </div>
+    {% else %}
+    <div class="hero hero-{{ navtop }} jumbotron bg-dark text-white" style="background-image:url('{{ bgimgsrc }}');">
+        <div class="container">
+            <h1 class="lead-1">{{ page.title }}</h1>
+        </div>
+    </div>
+    {% endif %}
+</header>

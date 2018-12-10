@@ -1,0 +1,33 @@
+<section class="container mb-5">
+    <nav>
+        <div class="nav nav-tabs nav-deep-linked" id="nav-tab" role="tablist">
+            {% assign ordered_legal = site.legal | sort:"order" %}
+            {% for legal in ordered_legal %}
+            {% assign stitle = legal.title | slugify %}
+            {% assign cactive = '' %}
+            {% assign cselected = 'false' %}
+            {% if forloop.first %}
+            {% assign cactive = 'default active' %}
+            {% assign cselected = 'true' %}
+            {% endif %}
+            <a class="nav-item nav-link {{ cactive }}" id="{{ 'nav-tab-' | append: stitle }}"
+                data-toggle="tab" href="{{ '#' | append: stitle }}" role="tab" aria-controls="{{ stitle }}"
+                aria-selected="{{ cselected }}">{{ legal.title }}</a>
+            {% endfor %}
+        </div>
+    </nav>
+    <div class="tab-content mt-3" id="nav-tabContent">
+        {% assign ordered_legal = site.legal | sort:"order" %}
+        {% for legal in ordered_legal %}
+        {% assign stitle = legal.title | slugify %}
+        {% assign sactive = '' %}
+        {% if forloop.first %}
+        {% assign sactive = 'show active' %}
+        {% endif %}
+        <div class="tab-pane fade {{ sactive }}" id="{{ stitle }}" role="tabpanel"
+            aria-labelledby="{{ 'nav-tab-' | append: stitle }}">
+            {{ legal.content | markdownify }}
+        </div>
+        {% endfor %}
+    </div>
+</section>

@@ -1,0 +1,45 @@
+{% assign bgclass = '' %}
+{% if include.highlight == true %}
+{% assign bgclass = 'bg-light' %}
+{% endif %}
+<section class="{{ bgclass }}">
+    <div class="container pb-4">
+        <h2 class="text-center pt-4 mb-4">{{ site.data.site.collections[include.collection].title }}</h2>
+        {% assign sorted-collection = site[include.collection] | sort: 'order' %}
+        <div id="carouselIndicators" class="carousel slide" data-ride="carousel" data-interval="8000">
+            <ol class="carousel-indicators">
+                {% for item in sorted-collection %}
+                {% assign active = '' %}
+                {% if forloop.first %}
+                {% assign active = 'active' %}
+                {% endif %}
+                <li data-target="#carouselIndicators" data-slide-to="{{ forloop.index0 }}" class="{{ active }}"></li>
+                {% endfor %}
+            </ol>
+            <div class="carousel-inner">
+                {% for item in sorted-collection %}
+                {% assign active = '' %}
+                {% if forloop.first %}
+                {% assign active = 'active' %}
+                {% endif %}
+                <div class="carousel-item {{ active }}">
+                    <img class="d-block w-100" src="{{ '/_assets/' | relative_url | | append: include.collection | append: '/' | append: item.img }}" alt="">
+                    <div class="carousel-caption">
+                        <h5>{{ item.title }}</h5>
+                        <div class="d-none d-md-block">{{ item.content | markdownify }}</div>
+                    </div>
+                </div>
+                {% endfor %}
+                <a class="carousel-control-prev" href="#carouselIndicators" role="button"
+                    data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselIndicators" role="button"
+                    data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+</section>
