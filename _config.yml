@@ -25,6 +25,7 @@ destination: docs
 include:
   - _assets
   - _static
+  - .nojekyll
 
 exclude: 
   - README.md
