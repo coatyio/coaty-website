@@ -10,5 +10,5 @@ includes:
       collection: usecases
     - file: stack.html
       collection: testimonials
-      highlight: true
+      highlight: false
 ---

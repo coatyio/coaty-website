@@ -8,6 +8,8 @@
         <div class="row">
             {% assign sorted-collection = site[include.collection] | sort: 'order' %}
             {% for item in sorted-collection %}
+            {% assign deactivated = item.deactivated %}
+            {% unless deactivated %}
             <div class="col-md">
                 <div class="stack-item mx-auto mb-4 d-flex flex-column align-items-center">
                     <a href="{{ item.link }}" target="_blank">
@@ -22,6 +24,7 @@
                     {% endunless %}
                 </div>
             </div>
+            {% endunless %}
             {% endfor %}
         </div>
     </div>
