@@ -43,6 +43,15 @@
     padding-left: 4px;
 }
 
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 .document-markdown {
     max-width: 800px;
 }
@@ -71,6 +80,11 @@
     background-color: #ebf0f5;
     max-width: 100%;
     height: auto;
+}
+
+.card-flip:focus-within {
+    -webkit-box-shadow: 0 0 1px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 0 1px 0 rgba(0,0,0,0.5);
 }
 
 .card-flip > div {
@@ -110,8 +124,8 @@
     content: "";
     position: absolute;
     bottom: 0;
-    left: 0;
-    width: 100%;
+    left: 1px;
+    width: calc(100% - 2px);
     height: 3rem;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 80%);
 }
@@ -119,7 +133,7 @@
 .card-back > .readmore {
     position: absolute;
     bottom: 4px;
-    right: 4px;
+    right: 3px;
 }
 
 .card-flip:hover .card-front {
