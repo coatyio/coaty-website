@@ -1,6 +1,6 @@
 ---
 title: "Decentralized job negotiation of Autonomous Guided Vehicles"
-img: usecase-dagv.jpg
+img: dagv.jpg
 order: 30
 ---
 A driverless transport system where all jobs are managed dynamically and without

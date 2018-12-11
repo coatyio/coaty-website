@@ -1,6 +1,6 @@
 ---
 title: "Digital Worker – An ecosystem to ease daily work in manufacturing and improve speed, quality, and safety"
-img: usecase-digitalworker.jpg
+img: digitalworker.jpg
 order: 40
 ---
 Coaty builds the communication foundation of Digital Worker applications,

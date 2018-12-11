@@ -2,7 +2,7 @@
 order: 10
 title: "Powerful communication patterns for any-to-any collaboration"
 fa-icon: fas fa-exchange-alt
-readmore: "/nutshell#communication-foundation"
+readmore: "/nutshell#communication-event-patterns"
 accent-color: primary
 ---
 

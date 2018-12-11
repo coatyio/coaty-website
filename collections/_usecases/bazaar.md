@@ -1,6 +1,6 @@
 ---
 title: "IIoT Bazaar - Decentralized marketplace for industrial edge applications"
-img: usecase-bazaar.jpg
+img: bazaar.jpg
 order: 20
 ---
 IIoT Bazaar combines Industrial IoT, Augmented Reality, and Blockchain.

@@ -318,7 +318,7 @@ interface SupportTask extends Task {
 Coaty reaches distributed system flexibility by decoupling communication endpoints,
 but maintaining all types of communication flows.
 
-![Communication foundation](/_assets/nutshell/nutshell-communication-foundation.png)
+![Communication foundation](/_assets/nutshell/communication-foundation.png)
 
 Coaty uses event-based communication flows with one-way/two-way and one-to-many/many-to-many
 event patterns to realize decentralized prosumer scenarios. Thereby, Coaty combines the
@@ -347,7 +347,7 @@ share, and update data on demand in a distributed system. You can also
 perform remote operations by issuing one-to-many or many-to-many
 remote procedure call events.
 
-![Communication event patterns](/_assets/nutshell/nutshell-communication-event-patterns.png)
+![Communication event patterns](/_assets/nutshell/communication-event-patterns.png)
 
 Coaty's standardized communication protocol is build on top of
 exchangeable open-standard publish-subscribe (pub/sub) messaging protocols such as
@@ -395,7 +395,7 @@ and platforms. We intend to make additional framework implementations available 
 For example, a [Unity](https://unity3d.com) implementation for programming
 collaborative Augmented Reality and Virtual Reality applications is in the works.
 
-## Ready to use
+## Getting started
 
 Get started with Coaty by using its best practice examples as
 application skeleton. In addition, Coaty comes with all you
