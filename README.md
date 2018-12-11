@@ -29,8 +29,8 @@ from the `docs` folder.
 This project uses a custom Jekyll theme based on a customized version of a
 free to use, open source Bootstrap themes created by [Bootswatch](https://bootswatch.com/).
 The Bootswatch theme is not contained in this project, it is bundled together with
-Bootstrap 4 into the `css/bootstrap.min.css` file. The custom Jekyll theme is defined
-in `css/main.css`.
+Bootstrap 4 into the `_static/css/bootstrap.min.css` file. The custom Jekyll theme is defined
+in `_static/css/main.css`.
 
 This project is not a Jekyll project based on a Gemfile. Therefore, it cannot be
 served with `bundle exec jekyll serve`.
