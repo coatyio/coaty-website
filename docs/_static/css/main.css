@@ -75,6 +75,7 @@
 
 .card-flip > div {
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     transition: transform 400ms;
     transition-timing-function: linear;
 }
