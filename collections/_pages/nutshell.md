@@ -218,7 +218,7 @@ const advertisedTasks = this.communicationManager
 
 return merge(discoveredTasks, advertisedTasks)
             .subscribe(task => {
-                // Handle both discovered and advertised tasks in one single place...
+                // Handle both discovered and advertised tasks in one place...
             });
 ```
 
@@ -325,7 +325,7 @@ event patterns to realize decentralized prosumer scenarios. Thereby, Coaty combi
 characteristics of both classic request-response and publish-subscribe communication.
 
 One of the unique features of Coaty communication is the fact that a single request in principal
-can yield multiple responses over time, even from the same responder. The use case specific
+can yield multiple responses over time, *even* from the same responder. The use case specific
 logic implemented by the requester determines how to handle such responses. For example,
 the requester can decide to
 

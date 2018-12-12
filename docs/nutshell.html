@@ -305,7 +305,7 @@ Using RxJS observables in a Coaty controller is as simple as that:</p>
 
 <span class="k">return</span> <span class="nx">merge</span><span class="p">(</span><span class="nx">discoveredTasks</span><span class="p">,</span> <span class="nx">advertisedTasks</span><span class="p">)</span>
             <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">task</span> <span class="o">=&gt;</span> <span class="p">{</span>
-                <span class="c1">// Handle both discovered and advertised tasks in one single place...</span>
+                <span class="c1">// Handle both discovered and advertised tasks in one place...</span>
             <span class="p">});</span>
 </code></pre></div></div>
 
@@ -409,7 +409,7 @@ event patterns to realize decentralized prosumer scenarios. Thereby, Coaty combi
 characteristics of both classic request-response and publish-subscribe communication.</p>
 
 <p>One of the unique features of Coaty communication is the fact that a single request in principal
-can yield multiple responses over time, even from the same responder. The use case specific
+can yield multiple responses over time, <em>even</em> from the same responder. The use case specific
 logic implemented by the requester determines how to handle such responses. For example,
 the requester can decide to</p>
 
