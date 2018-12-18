@@ -1,4 +1,5 @@
 ---
+slug: terms-of-use
 title: "Terms of Use"
 order: 40
 ---

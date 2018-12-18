@@ -11,7 +11,7 @@
                 <ul class="list-inline mb-0">
                     {% assign ordered_legal = site.legal | sort:"order" %}
                     {% for legal in ordered_legal %}
-                    {% assign stitle = legal.title | slugify | prepend: '/legal#' %}
+                    {% assign stitle = legal.slug | prepend: '/legal#' %}
                     {% assign stitle = stitle | relative_url %}
                     {% unless forloop.first %}
                     <li class="list-inline-item">&sdot;</li>

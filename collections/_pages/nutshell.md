@@ -203,20 +203,20 @@ this.communicationManager
 ```ts
 /* Handle both discovered and advertised tasks in context as they are received */
 
-const discoveredTasks = this.communicationManager
+const discoveredTasks$ = this.communicationManager
     .publishDiscover(DiscoverEvent.withObjectTypes(this.identity, ["com.mycompany.myproject.SupportTask"]))
     .pipe(
         filter(event => !!event.eventData.object),
         map(event => event.eventData.object as SupportTask)
     );
 
-const advertisedTasks = this.communicationManager
+const advertisedTasks$ = this.communicationManager
     .observeAdvertiseWithObjectType(this.identity, "com.mycompany.myproject.SupportTask")
     .pipe(
         map(event => event.eventData.object as SupportTask)
     );
 
-return merge(discoveredTasks, advertisedTasks)
+return merge(discoveredTasks$, advertisedTasks$)
             .subscribe(task => {
                 // Handle both discovered and advertised tasks in one place...
             });

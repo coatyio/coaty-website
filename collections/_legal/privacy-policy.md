@@ -1,4 +1,5 @@
 ---
+slug: privacy-policy
 title: "Privacy Policy"
 order: 20
 ---

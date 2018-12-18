@@ -295,20 +295,20 @@ Using RxJS observables in a Coaty controller is as simple as that:</p>
 
 <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Handle both discovered and advertised tasks in context as they are received */</span>
 
-<span class="kd">const</span> <span class="nx">discoveredTasks</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">communicationManager</span>
+<span class="kd">const</span> <span class="nx">discoveredTasks$</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">communicationManager</span>
     <span class="p">.</span><span class="nx">publishDiscover</span><span class="p">(</span><span class="nx">DiscoverEvent</span><span class="p">.</span><span class="nx">withObjectTypes</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">identity</span><span class="p">,</span> <span class="p">[</span><span class="s2">"com.mycompany.myproject.SupportTask"</span><span class="p">]))</span>
     <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
         <span class="nx">filter</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="o">!!</span><span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span><span class="p">),</span>
         <span class="nx">map</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span> <span class="k">as</span> <span class="nx">SupportTask</span><span class="p">)</span>
     <span class="p">);</span>
 
-<span class="kd">const</span> <span class="nx">advertisedTasks</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">communicationManager</span>
+<span class="kd">const</span> <span class="nx">advertisedTasks$</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">communicationManager</span>
     <span class="p">.</span><span class="nx">observeAdvertiseWithObjectType</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">identity</span><span class="p">,</span> <span class="s2">"com.mycompany.myproject.SupportTask"</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
         <span class="nx">map</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span> <span class="k">as</span> <span class="nx">SupportTask</span><span class="p">)</span>
     <span class="p">);</span>
 
-<span class="k">return</span> <span class="nx">merge</span><span class="p">(</span><span class="nx">discoveredTasks</span><span class="p">,</span> <span class="nx">advertisedTasks</span><span class="p">)</span>
+<span class="k">return</span> <span class="nx">merge</span><span class="p">(</span><span class="nx">discoveredTasks$</span><span class="p">,</span> <span class="nx">advertisedTasks$</span><span class="p">)</span>
             <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">task</span> <span class="o">=&gt;</span> <span class="p">{</span>
                 <span class="c1">// Handle both discovered and advertised tasks in one place...</span>
             <span class="p">});</span>
@@ -519,7 +519,7 @@ complete framework source code documentation.</p>
                     
                     
                     <li class="list-inline-item">
-                        <a href="/legal#corporate-information">Corporate Information</a>
+                        <a href="/legal">Corporate Information</a>
                     </li>
                     
                     

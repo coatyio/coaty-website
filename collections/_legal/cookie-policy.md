@@ -1,4 +1,5 @@
 ---
+slug: cookie-policy
 title: "Cookie Policy"
 order: 30
 ---
