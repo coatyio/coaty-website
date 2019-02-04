@@ -157,11 +157,11 @@ cope with a large amount of implementation details. Code in RP will be more
 concise and clear by hiding asynchronous issues such as low-level threading,
 synchronization and concurreny.
 
-Reactive Programming libraries are ubiquitously available for a
-variety of programming languages and platforms. Coaty JavaScript, our
-reference framework implementation uses the [RxJS](http://reactivex.io/)
-library. You can find examples and explanations on the
-[Learn RxJS](https://www.learnrxjs.io/) website.
+[Reactive Programming libraries](http://reactivex.io/) are ubiquitously
+available for a variety of programming languages and platforms.
+Coaty JavaScript, our reference framework implementation uses the
+[RxJS](https://rxjs.dev/) library. You can also find examples and
+explanations on the [Learn RxJS](https://www.learnrxjs.io/) website.
 
 <a name="reactive-programming-examples"></a>
 Using RxJS observables in a Coaty controller is as simple as that:
