@@ -103,23 +103,32 @@
             
             <section class="container document-markdown pb-5 pt-4">
     <p>Using Coaty as a middleware, you can build distributed applications out of
-decentralized application components, so called Coaty agents, which are
-loosely coupled and communicate in (soft) real-time.</p>
+decentrally organized application components, so called Coaty agents, which are
+loosely coupled and communicate with each other in (soft) real-time.
+The main focus is on IoT prosumer scenarios where smart agents
+act in an autonomous, collaborative, and ad-hoc fashion.</p>
 
 <p>Coaty removes the need for a central coordination authority by decoupling interaction
-between agents. You can dynamically add new agents and new features without distracting
-the existing system in order to adapt to your ever-changing scenarios.</p>
+between agents. You can dynamically and spontaneously add new agents and new features
+without distracting the existing system in order to adapt to your ever-changing scenarios.
+All types of agents such as sensors, mobile devices, edge and cloud services can be
+considered equivalent.</p>
 
 <p>At its core, Coaty offers a standardized set of event-based communication patterns
 for Coaty agents to talk to each other by one-way/two-way and one-to-many/many-to-many
-communication flows without the need to know about each other.</p>
+communication flows without the need to know about each other. Subject of communication
+is domain-specific data based on a typed, extensible object model. Thereby, data in
+a distributed system can be shared (Advertise, Channel), discovered (Discover-Resolve),
+queried (Query-Retrieve), as well as modified and persisted (Update-Complete).
+Moreover, remote operations can be performed by executing one-to-many or many-to-many
+remote procedure calls (Call-Return).</p>
 
-<p>We think collaborative applications often have a natural need for such forms of
-interaction. Restricting interaction to strongly coupled one-to-one
+<p>We think collaborative applications often have a natural need for such powerful forms
+of interaction. Restricting interaction to strongly coupled one-to-one
 communication (classic request-response) quickly becomes complex, inflexible,
 and unmaintainable. Restricting interaction to loosely coupled one-way
 communication (classic publish-subscribe) lacks the power of transmitting
-information by both parties. Which is why Coaty combines the best of both worlds.</p>
+information in direct responses. Which is why Coaty combines the best of both worlds.</p>
 
 <p>The Coaty framework is easy to use, straightforward to port to different
 programming languages, and based on modern software engineering and technology

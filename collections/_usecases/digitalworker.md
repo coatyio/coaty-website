@@ -1,7 +1,7 @@
 ---
 title: "Digital Worker – An ecosystem to ease daily work in manufacturing and improve speed, quality, and safety"
 img: digitalworker.jpg
-order: 40
+order: 50
 ---
 Coaty builds the communication foundation of Digital Worker applications,
 dynamically interconnecting smartphones, tablets, wearables,
