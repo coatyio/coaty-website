@@ -7,7 +7,7 @@ includes:
     - file: document.html
 ---
 
-Using Coaty as a middleware, you can build distributed applications out of
+Using Coaty [koʊti] as a middleware, you can build distributed applications out of
 decentrally organized application components, so called Coaty agents, which are
 loosely coupled and communicate with each other in (soft) real-time.
 The main focus is on IoT prosumer scenarios where smart agents
@@ -43,6 +43,8 @@ We believe Coaty is a major step forward in practice that allows developers
 to create more powerful collaborative applications with less complexity and in
 less time.
 
+<a name="lightweight-and-modular-framework-architecture"></a>
+
 ## Lightweight and modular framework architecture
 
 Coaty embodies a modern software architecture with a shift in mindset from an
@@ -62,10 +64,8 @@ extensible environment connectors. Connectors serve as gateways
 to external networks, or bridges to connect to external systems.
 
 Coaty comes with an essential set of connectors to store and retrieve
-Coaty objects in SQL and noSQL database systems. These connectors provide
-a *Unified persistance API* for seamless storage and retrieval of distributed
-data with the Query-Retrieve communication event pattern as described
-[here](#communication-event-patterns).
+Coaty objects in SQL and noSQL database systems (see
+[here](#query-anywhere-retrieve-anywhere-persist-anywhere)).
 
 ### Set up your agent
 
@@ -147,6 +147,8 @@ You can use the communication manager without the need to understand
 and deal with details of the underlying publish-subscribe messaging protocol,
 including auto-reconnect, automatic re-subscription upon connection, and
 queued offline publishing.
+
+<a name="reactive-programming-for-asynchronous-event-handling"></a>
 
 ### Reactive Programming for asynchronous event handling
 
@@ -231,6 +233,8 @@ return merge(discoveredTasks$, advertisedTasks$)
             });
 ```
 
+<a name="typed-object-model"></a>
+
 ## Typed Object Model
 
 You can model your domain data with Coaty's platform-agnostic typed object model.
@@ -261,8 +265,9 @@ Coaty objects are JSON (JavaScript Object Notation) compatible to be easily inte
 between languages and platforms. As such, Coaty objects solely represent property - value
 pairs that model state but no behavior.
 
-Coaty objects can be persisted schemalessly in NoSQL and SQL data stores using the
-Unified Persistance API of the framework.
+Besides core object types, the framework also defines object types to manage a
+self-discovering network of sensors and to distribute sensor data. For this purpose,
+Coaty leverages the [OGC SensorThings API](https://coatyio.github.io/coaty-js/man/sensor-things-guide/).
 
 The base `CoatyObject` interface defines the following generic properties:
 
@@ -322,6 +327,29 @@ interface SupportTask extends Task {
 }
 ```
 
+<a name="query-anywhere-retrieve-anywhere-persist-anywhere"></a>
+
+## Query anwhere - retrieve anywhere - persist anywhere
+
+Coaty communication provides a [Query-Retrieve](#communication-event-patterns) event pattern to
+seamlessly query distributed domain-specific data across decentralized application components,
+and retrieve them from a single or multiple storage systems, no matter if storage is persistent
+in a database or in memory. Query-Retrieve enables declarative, seamless and transparent retrieval
+of Coaty objects across Coaty agents independent of storage implementations. The Query event’s object
+filter which specifies selection and ordering criteria can be directly passed to Coaty's
+*Unified Storage API* for object retrieval.
+
+Using the Unified Storage API, Coaty objects can be persisted schemalessly in arbitary data
+sources. The database-agnostic API provides a common interface to store and retrieve data from
+NoSQL and relational SQL data stores using the notion of *adapters* to connect to specific databases.
+
+The Coaty framework provides ready-to-use built-in adapters for NoSQL/SQL-based storage
+in e.g. PostgreSQL and SQLite databases. In addition, it provides an in-memory storage.
+You can also write your own custom adapter to connect to a specific database not yet
+supported by the framework.
+
+<a name="communication-foundation"></a>
+
 ## Communication foundation
 
 Coaty reaches distributed system flexibility by decoupling communication endpoints,
@@ -349,6 +377,8 @@ and publish a Retrieve event with the latest results every time the concerned st
 is updated. In this way, inefficient database polling is replaced by an efficient
 push-based approach.
 
+<a name="communication-event-patterns"></a>
+
 ### Communication event patterns
 
 Coaty provides a set of event-based communication patterns to discover, query,
@@ -367,6 +397,8 @@ in a simple, uniform way. You can find some examples in the section on
 [Reactive Programming](#reactive-programming-examples). For details and advanced
 use cases, take a look at the [Coaty JS Developer Guide](https://coatyio.github.io/coaty-js/man/developer-guide/#communication-event-patterns).
 
+<a name="smart-routing-of-iot-data"></a>
+
 ## Smart routing of IoT data
 
 Coaty provides what we call *Smart Routing* of IoT (sensor) data,
@@ -382,6 +414,8 @@ Coaty's rule engine evaluates these rules and updates associations
 between sources and actors accordingly.
 
 For details, take a look at the [Coaty JS Developer Guide](https://coatyio.github.io/coaty-js/man/developer-guide/#io-routing).
+
+<a name="works-across-languages-and-platforms"></a>
 
 ## Works across languages and platforms
 

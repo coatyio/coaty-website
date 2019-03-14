@@ -102,7 +102,7 @@
         
             
             <section class="container document-markdown pb-5 pt-4">
-    <p>Using Coaty as a middleware, you can build distributed applications out of
+    <p>Using Coaty [koʊti] as a middleware, you can build distributed applications out of
 decentrally organized application components, so called Coaty agents, which are
 loosely coupled and communicate with each other in (soft) real-time.
 The main focus is on IoT prosumer scenarios where smart agents
@@ -138,6 +138,8 @@ standards.</p>
 to create more powerful collaborative applications with less complexity and in
 less time.</p>
 
+<p><a name="lightweight-and-modular-framework-architecture"></a></p>
+
 <h2 id="header-lightweight-and-modular-framework-architecture">Lightweight and modular framework architecture</h2>
 
 <p>Coaty embodies a modern software architecture with a shift in mindset from an
@@ -157,10 +159,8 @@ extensible environment connectors. Connectors serve as gateways
 to external networks, or bridges to connect to external systems.</p>
 
 <p>Coaty comes with an essential set of connectors to store and retrieve
-Coaty objects in SQL and noSQL database systems. These connectors provide
-a <em>Unified persistance API</em> for seamless storage and retrieval of distributed
-data with the Query-Retrieve communication event pattern as described
-<a href="#communication-event-patterns">here</a>.</p>
+Coaty objects in SQL and noSQL database systems (see
+<a href="#query-anywhere-retrieve-anywhere-persist-anywhere">here</a>).</p>
 
 <h3 id="header-set-up-your-agent">Set up your agent</h3>
 
@@ -243,6 +243,8 @@ and deal with details of the underlying publish-subscribe messaging protocol,
 including auto-reconnect, automatic re-subscription upon connection, and
 queued offline publishing.</p>
 
+<p><a name="reactive-programming-for-asynchronous-event-handling"></a></p>
+
 <h3 id="header-reactive-programming-for-asynchronous-event-handling">Reactive Programming for asynchronous event handling</h3>
 
 <p>Reactive Programming (RP) is a paradigm for asynchronous programming with
@@ -323,6 +325,8 @@ Using RxJS observables in a Coaty controller is as simple as that:</p>
             <span class="p">});</span>
 </code></pre></div></div>
 
+<p><a name="typed-object-model"></a></p>
+
 <h2 id="header-typed-object-model">Typed Object Model</h2>
 
 <p>You can model your domain data with Coaty’s platform-agnostic typed object model.
@@ -352,8 +356,9 @@ It provides an extensible hierarchy of core object types for distributed data ex
 between languages and platforms. As such, Coaty objects solely represent property - value
 pairs that model state but no behavior.</p>
 
-<p>Coaty objects can be persisted schemalessly in NoSQL and SQL data stores using the
-Unified Persistance API of the framework.</p>
+<p>Besides core object types, the framework also defines object types to manage a
+self-discovering network of sensors and to distribute sensor data. For this purpose,
+Coaty leverages the <a href="https://coatyio.github.io/coaty-js/man/sensor-things-guide/">OGC SensorThings API</a>.</p>
 
 <p>The base <code class="language-html highlighter-rouge">CoatyObject</code> interface defines the following generic properties:</p>
 
@@ -411,6 +416,29 @@ types with additional properties and specify a canonical object type name:</p>
 <span class="p">}</span>
 </code></pre></div></div>
 
+<p><a name="query-anywhere-retrieve-anywhere-persist-anywhere"></a></p>
+
+<h2 id="header-query-anwhere---retrieve-anywhere---persist-anywhere">Query anwhere - retrieve anywhere - persist anywhere</h2>
+
+<p>Coaty communication provides a <a href="#communication-event-patterns">Query-Retrieve</a> event pattern to
+seamlessly query distributed domain-specific data across decentralized application components,
+and retrieve them from a single or multiple storage systems, no matter if storage is persistent
+in a database or in memory. Query-Retrieve enables declarative, seamless and transparent retrieval
+of Coaty objects across Coaty agents independent of storage implementations. The Query event’s object
+filter which specifies selection and ordering criteria can be directly passed to Coaty’s
+<em>Unified Storage API</em> for object retrieval.</p>
+
+<p>Using the Unified Storage API, Coaty objects can be persisted schemalessly in arbitary data
+sources. The database-agnostic API provides a common interface to store and retrieve data from
+NoSQL and relational SQL data stores using the notion of <em>adapters</em> to connect to specific databases.</p>
+
+<p>The Coaty framework provides ready-to-use built-in adapters for NoSQL/SQL-based storage
+in e.g. PostgreSQL and SQLite databases. In addition, it provides an in-memory storage.
+You can also write your own custom adapter to connect to a specific database not yet
+supported by the framework.</p>
+
+<p><a name="communication-foundation"></a></p>
+
 <h2 id="header-communication-foundation">Communication foundation</h2>
 
 <p>Coaty reaches distributed system flexibility by decoupling communication endpoints,
@@ -440,6 +468,8 @@ and publish a Retrieve event with the latest results every time the concerned st
 is updated. In this way, inefficient database polling is replaced by an efficient
 push-based approach.</p>
 
+<p><a name="communication-event-patterns"></a></p>
+
 <h3 id="header-communication-event-patterns">Communication event patterns</h3>
 
 <p>Coaty provides a set of event-based communication patterns to discover, query,
@@ -458,6 +488,8 @@ in a simple, uniform way. You can find some examples in the section on
 <a href="#reactive-programming-examples">Reactive Programming</a>. For details and advanced
 use cases, take a look at the <a href="https://coatyio.github.io/coaty-js/man/developer-guide/#communication-event-patterns">Coaty JS Developer Guide</a>.</p>
 
+<p><a name="smart-routing-of-iot-data"></a></p>
+
 <h2 id="header-smart-routing-of-iot-data">Smart routing of IoT data</h2>
 
 <p>Coaty provides what we call <em>Smart Routing</em> of IoT (sensor) data,
@@ -473,6 +505,8 @@ Coaty’s rule engine evaluates these rules and updates associations
 between sources and actors accordingly.</p>
 
 <p>For details, take a look at the <a href="https://coatyio.github.io/coaty-js/man/developer-guide/#io-routing">Coaty JS Developer Guide</a>.</p>
+
+<p><a name="works-across-languages-and-platforms"></a></p>
 
 <h2 id="header-works-across-languages-and-platforms">Works across languages and platforms</h2>
 
