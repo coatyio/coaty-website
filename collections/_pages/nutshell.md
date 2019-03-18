@@ -390,7 +390,9 @@ remote procedure call events.
 
 Coaty's standardized communication protocol is build on top of
 exchangeable open-standard publish-subscribe (pub/sub) messaging protocols such as
-[MQTT](http://mqtt.org/) or [WAMP](https://wamp-proto.org/).
+[MQTT](http://mqtt.org/) or [WAMP](https://wamp-proto.org/), but it does not
+expose the messaging primitives. By choosing WebSocket-aware pub/sub messaging systems,
+Coaty agents can also run in mobile and web browsers.
 
 With the help of Reactive Programming, all Coaty event patterns are programmed
 in a simple, uniform way. You can find some examples in the section on
