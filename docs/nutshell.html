@@ -352,9 +352,9 @@ It provides an extensible hierarchy of core object types for distributed data ex
   |-- FeatureOfInterest
 </code></pre></div></div>
 
-<p>Coaty objects are JSON (JavaScript Object Notation) compatible to be easily interoperable
-between languages and platforms. As such, Coaty objects solely represent property - value
-pairs that model state but no behavior.</p>
+<p>Coaty objects are <a href="http://www.json.org">JSON</a> (<a href="https://www.ietf.org/rfc/rfc4627.txt">JavaScript Object Notation</a>)
+compatible to be easily interoperable between languages and platforms. As such, Coaty objects solely represent
+property - value pairs that model state but no behavior.</p>
 
 <p>Besides core object types, the framework also defines object types to manage a
 self-discovering network of sensors and to distribute sensor data. For this purpose,
@@ -448,7 +448,9 @@ but maintaining all types of communication flows.</p>
 
 <p>Coaty uses event-based communication flows with one-way/two-way and one-to-many/many-to-many
 event patterns to realize decentralized prosumer scenarios. Thereby, Coaty combines the
-characteristics of both classic request-response and publish-subscribe communication.</p>
+characteristics of both classic request-response and publish-subscribe communication.
+In contrast to classic client-server systems, all Coaty participants are equal in that
+they can act both as producers/requesters and consumers/responders.</p>
 
 <p>One of the unique features of Coaty communication is the fact that a single request in principal
 can yield multiple responses over time, <em>even</em> from the same responder. The use case specific
@@ -482,8 +484,9 @@ remote procedure call events.</p>
 <p>Coaty’s standardized communication protocol is build on top of
 exchangeable open-standard publish-subscribe (pub/sub) messaging protocols such as
 <a href="http://mqtt.org/">MQTT</a> or <a href="https://wamp-proto.org/">WAMP</a>, but it does not
-expose the messaging primitives. By choosing WebSocket-aware pub/sub messaging systems,
-Coaty agents can also run in mobile and web browsers.</p>
+expose the messaging primitives whcih are just an implementation detail.
+By choosing WebSocket-aware pub/sub messaging systems, Coaty agents can also
+run in mobile and web browsers.</p>
 
 <p>With the help of Reactive Programming, all Coaty event patterns are programmed
 in a simple, uniform way. You can find some examples in the section on

@@ -261,9 +261,9 @@ CoatyObject
   |-- FeatureOfInterest
 ```
 
-Coaty objects are JSON (JavaScript Object Notation) compatible to be easily interoperable
-between languages and platforms. As such, Coaty objects solely represent property - value
-pairs that model state but no behavior.
+Coaty objects are [JSON](http://www.json.org) ([JavaScript Object Notation](https://www.ietf.org/rfc/rfc4627.txt))
+compatible to be easily interoperable between languages and platforms. As such, Coaty objects solely represent
+property - value pairs that model state but no behavior.
 
 Besides core object types, the framework also defines object types to manage a
 self-discovering network of sensors and to distribute sensor data. For this purpose,
@@ -360,6 +360,8 @@ but maintaining all types of communication flows.
 Coaty uses event-based communication flows with one-way/two-way and one-to-many/many-to-many
 event patterns to realize decentralized prosumer scenarios. Thereby, Coaty combines the
 characteristics of both classic request-response and publish-subscribe communication.
+In contrast to classic client-server systems, all Coaty participants are equal in that
+they can act both as producers/requesters and consumers/responders.
 
 One of the unique features of Coaty communication is the fact that a single request in principal
 can yield multiple responses over time, *even* from the same responder. The use case specific
@@ -391,8 +393,9 @@ remote procedure call events.
 Coaty's standardized communication protocol is build on top of
 exchangeable open-standard publish-subscribe (pub/sub) messaging protocols such as
 [MQTT](http://mqtt.org/) or [WAMP](https://wamp-proto.org/), but it does not
-expose the messaging primitives. By choosing WebSocket-aware pub/sub messaging systems,
-Coaty agents can also run in mobile and web browsers.
+expose the messaging primitives whcih are just an implementation detail.
+By choosing WebSocket-aware pub/sub messaging systems, Coaty agents can also
+run in mobile and web browsers.
 
 With the help of Reactive Programming, all Coaty event patterns are programmed
 in a simple, uniform way. You can find some examples in the section on
