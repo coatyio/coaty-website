@@ -25,8 +25,8 @@ communication flows without the need to know about each other. Subject of commun
 is domain-specific data based on a typed, extensible object model. Thereby, data in
 a distributed system can be shared (Advertise, Channel), discovered (Discover-Resolve),
 queried (Query-Retrieve), as well as modified and persisted (Update-Complete).
-Moreover, remote operations can be performed by executing one-to-many or many-to-many
-remote procedure calls (Call-Return).
+Moreover, remote operations targeted at multiple executing agents can be requested
+(Call-Return).
 
 We think collaborative applications often have a natural need for such powerful forms
 of interaction. Restricting interaction to strongly coupled one-to-one
@@ -384,18 +384,17 @@ push-based approach.
 ### Communication event patterns
 
 Coaty provides a set of event-based communication patterns to discover, query,
-share, and update data on demand in a distributed system. You can also
-perform remote operations by issuing one-to-many or many-to-many
-remote procedure call events.
+share, and update data on demand in a distributed system, and to request
+execution of context-filtered remote operations.
 
 ![Communication event patterns](/_assets/nutshell/communication-event-patterns.png)
 
 Coaty's standardized communication protocol is build on top of
 exchangeable open-standard publish-subscribe (pub/sub) messaging protocols such as
 [MQTT](http://mqtt.org/) or [WAMP](https://wamp-proto.org/), but it does not
-expose the messaging primitives whcih are just an implementation detail.
+expose the messaging primitives which are just an implementation detail.
 By choosing WebSocket-aware pub/sub messaging systems, Coaty agents can also
-run in mobile and web browsers.
+fully run in mobile and web browsers directly interacting with other Coaty agents.
 
 With the help of Reactive Programming, all Coaty event patterns are programmed
 in a simple, uniform way. You can find some examples in the section on
@@ -438,16 +437,17 @@ targeted at JavaScript/TypeScript, running as mobile and web apps in the browser
 or as Node.js services. Coaty JS provides a complete set of features as described
 in the [Developer Guide](https://coatyio.github.io/coaty-js/man/developer-guide/).
 
-Coaty JS is intended to be used as reference for porting Coaty to new programming languages
-and platforms. We intend to make additional framework implementations available as open source.
-For example, a [Unity](https://unity3d.com) implementation for programming
-collaborative Augmented Reality and Virtual Reality applications is in the works.
+Coaty JS is intended to be used as reference for porting Coaty to new
+programming languages and platforms. We intend to make additional framework
+implementations available as open source. For example,
+[Swift](https://www.apple.com/swift/) and [Unity](https://unity3d.com)
+implementations for programming collaborative Augmented Reality and Virtual
+Reality applications are in the works.
 
 ## Getting started
 
-Get started with Coaty by using its best practice examples as
-application skeleton. In addition, Coaty comes with all you
-need to know: a developer guide, coding style guide, and
-complete framework source code documentation.
+Get started with Coaty by using its best practice code examples as application
+skeleton. In addition, Coaty comes with all you need to know: a developer guide,
+coding style guide, and complete framework source code documentation.
 
 Details can be found on the [Documentation](/docs) page.
