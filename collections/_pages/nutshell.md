@@ -370,6 +370,7 @@ the requester can decide to
 
 * just take the first response and ignore all others,
 * only take responses received within a given time interval,
+* only take responses until a specific condition is met,
 * handle any response over time, or
 * process responses as defined by any other application-specific logic.
 
