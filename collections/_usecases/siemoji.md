@@ -1,7 +1,7 @@
 ---
 title: "SIEMoji – The AR-Take on diagnostics"
 img: siemoji.jpg
-order: 10
+order: 40
 ---
 SIEMoji combines Augmented Reality, smartphones, and IoT technology
 with the expressive language of social media to reach a new level of user

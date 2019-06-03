@@ -1,7 +1,7 @@
 ---
 title: "SIMOVE - Maximize your Production Flexibility"
 img: simove.jpg
-order: 40
+order: 20
 ---
 Using the SIMOVE AGV system platform, Siemens demonstrates how AGV machine
 builders benefit from reduced planning and engineering effort as well as

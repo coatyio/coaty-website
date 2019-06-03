@@ -1,7 +1,7 @@
 ---
 title: "Decentralized job negotiation of Autonomous Guided Vehicles"
 img: dagv.jpg
-order: 30
+order: 10
 ---
 A driverless transport system where all jobs are managed dynamically and without
 central authorities. Coaty builds the communication foundation to advertise jobs,
