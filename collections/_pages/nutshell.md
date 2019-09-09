@@ -449,6 +449,6 @@ Reality applications are in the works.
 
 Get started with Coaty by using its best practice code examples as application
 skeleton. In addition, Coaty comes with all you need to know: a developer guide,
-coding style guide, and complete framework source code documentation.
+coding style guide, and complete framework API documentation.
 
 Details can be found on the [Documentation](/docs) page.
