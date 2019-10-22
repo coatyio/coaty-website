@@ -1,0 +1,10 @@
+---
+order: 20
+title: "Tutorial"
+fa-icon: fas fa-chalkboard-teacher
+readmore-external: "https://coatyio.github.io/coaty-swift/tutorial/index.html"
+accent-color: info
+bg-color: light
+---
+
+CoatySwift includes a step-by-step guide on how to set up a basic CoatySwift application.

@@ -16,7 +16,7 @@
     <meta property="og:url" content="https://coaty.io" />
     <meta property="og:image" content="http://coaty.io/_assets/brand/coaty-og-image.png" />
 
-    <title>Coaty | News</title>
+    <title>Coaty | <img height='36px' src='/_assets/docs-essentials/swift-logo.svg'> Coaty goes Swift</title>
 
     <!-- Custom CSS including Bootstrap 4 with custom Bootswatch theme, syntax theme, and custom Jekyll styles -->
     <link rel="stylesheet" type="text/css" href="/_static/css/main.css">
@@ -32,7 +32,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/_assets/favicon-144.png">
 </head>
 
-<body class="site page-news">
+<body class="site page-news-007">
     <header class="site-header">
     
     
@@ -93,20 +93,15 @@
     
     <div class="hero hero-fixed-top jumbotron bg-dark text-white" style="background-image:url('/_assets/brand/coaty-circle-gray.svg');">
         <div class="container">
-            <h1 class="lead-1">News</h1>
+            <h1 class="lead-1"><img height='36px' src='/_assets/docs-essentials/swift-logo.svg'> Coaty goes Swift</h1>
         </div>
     </div>
     
 </header>
     <main class="site-content">
         
-            
-            <section class="container pb-5 pt-4">
-    
-    
-    <h4><img height='36px' src='/_assets/docs-essentials/swift-logo.svg'> Coaty goes Swift</h4>
-    <small class="text-muted">October 22, 2019</small>
-    <div class="mt-2 mb-2"><p>Today we are excited to announce
+            <section class="container document-markdown pb-5 pt-4">
+    <p>Today we are excited to announce
 <a href="https://github.com/coatyio/coaty-swift" target="_blank">CoatySwift</a>, a Swift
 version of the Coaty framework targeted at native iOS, iPadOS, and macOS
 applications. CoatySwift comes with everything you need to build awesome
@@ -123,105 +118,8 @@ collaborative apps, including:</p>
 <p>Our special thanks go to <a href="https://github.com/melloskitten">Sandra</a> and
 <a href="https://github.com/johannesrohwer">Johannes</a>, who did a great contribution in
 developing CoatySwift.</p>
-</div>
-    
-    <hr>
-    
-    
-    
-    
-    <h4>Successful integration of InSystems proANT AGVs with Coaty</h4>
-    <small class="text-muted">October 14, 2019</small>
-    <div class="mt-2 mb-2"><p>Last week we demonstrated a decentralized fleet management application in the
-<a href="http://www.insystems.de" target="_blank">InSystems</a> Lab in Berlin. InSystems
-proANT transport robots coordinate the execution of transport tasks in a
-self-organizing fashion based on the Coaty Framework without a central
-coordination system.</p>
 
-<p><img src="/_assets/news/proANT-coaty-integration-1.jpg" alt="InSystems proANT Coaty integration" height="320px" />
-<img src="/_assets/news/proANT-coaty-integration-2.jpg" alt="InSystems proANT Coaty integration" height="320px" /></p>
-</div>
-    
-    <hr>
-    
-    
-    
-    
-    <h4>New Coaty JS development broker</h4>
-    <small class="text-muted">May  8, 2019</small>
-    <div class="mt-2 mb-2"><p>Coaty JS release [1.6.0] integrates a new MQTT broker for development and
-testing. Due to concerns regarding performance and security vulnerabilities, the
-Mosca broker used previously has been replaced by
-<a href="https://www.npmjs.com/package/aedes" target="_blank">Aedes</a>, a lighweight
-barebone broker that installs fast. This broker comes bundled with the Coaty JS
-framework. When upgrading your Coaty JS applications, remove/uninstall <code class="language-html highlighter-rouge">mosca</code>
-dependency from package.json.</p>
-</div>
-    
-    <hr>
-    
-    
-    
-    
-    <h4>Coaty features remote operation calls</h4>
-    <small class="text-muted">April  9, 2019</small>
-    <div class="mt-2 mb-2"><p>Coaty JS release 1.5 introduces the
-<a href="https://coatyio.github.io/coaty-js/man/developer-guide/#call---return-event-pattern---an-example" target="_blank">Call-Return</a>
-communication pattern. Unlike with classic RPC, this one-to-many, two-way
-pattern supports non-blocking remote operations to be executed by multiple
-Coaty agents. The calling agent can specify a context filter that defines
-conditions under which the operation is allowed to be performed.</p>
-
-<p>Typical use cases of the Call-Return pattern include smart distribution of
-computational workloads to dedicated worker agents, and non safety critical, non
-latency sensitive decentralized command and control applications.</p>
-
-<p>A new best-practice code example on remote operations can be found
-<a href="https://github.com/coatyio/coaty-examples/tree/master/remote-operations/js" target="_blank">here</a>.</p>
-</div>
-    
-    <hr>
-    
-    
-    
-    
-    <h4>Coaty announced by heise Developer News</h4>
-    <small class="text-muted">February 18, 2019</small>
-    <div class="mt-2 mb-2"><p>The German <a href="https://heise.de/-4311307" target="_blank">heise Developer News Portal</a>
-publishes an overview article “Coaty: Open-Source-Framework für Collaborative IoT”.</p>
-</div>
-    
-    <hr>
-    
-    
-    
-    
-    <h4>Coaty as communication foundation for collaborative use case in CrESt</h4>
-    <small class="text-muted">January 15, 2019</small>
-    <div class="mt-2 mb-2"><p>Coaty builds the communication foundation for one of the core use cases of CreST, modelling collaborative
-operation autonomy of autonomous guided vehicles. The <a href="https://crest.in.tum.de/" target="_blank">Collaborative Embedded Systems</a>
-project (CrESt) is funded by the German Ministry of Education and Research under grant number 01IS16043.</p>
-</div>
-    
-    <hr>
-    
-    
-    
-    
-    <h4>Coaty goes open source</h4>
-    <small class="text-muted">October  8, 2018</small>
-    <div class="mt-2 mb-2"><p>We are excited to announce the first open source release of the Coaty framework,
-a cross-platform implementation targeted at JavaScript/TypeScript. It can be used to
-implement collaborative applications running as mobile or web apps in the browser or
-as Node.js services. Coaty JavaScript is available as an npm package named
-<a href="https://www.npmjs.com/package/coaty" target="_blank">coaty</a>. Sources and
-documentation can be found <a href="https://github.com/coatyio/coaty-js" target="_blank">here</a>.</p>
-</div>
-    
-    
-    
 </section>
-            
         
     </main>
     <footer class="site-footer bg-dark">

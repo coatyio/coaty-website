@@ -7,5 +7,5 @@ accent-color: primary
 ---
 
 Covers everything a developer needs to know about using the Coaty
-framework to implement collaborative IoT applications targeting Node.js,
+framework to develop collaborative IoT applications targeting Node.js,
 as well as mobile and web apps in the browser.

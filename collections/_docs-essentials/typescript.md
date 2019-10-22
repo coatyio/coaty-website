@@ -1,10 +1,9 @@
 ---
-order: 20
+order: 10
 title: "Learn TypeScript"
 icon: "typescript-logo.svg"
 readmore-external: "http://www.typescriptlang.org/"
-accent-color: info
-bg-color: light
+accent-color: primary
 ---
 
 Coaty JS uses TypeScript, a typed superset of JavaScript that compiles

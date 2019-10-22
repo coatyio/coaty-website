@@ -10,7 +10,7 @@ As a prerequisite install Jekyll on your local machine.
 To build and serve the site while developing locally, use
 
 ```sh
-jekyll serve
+jekyll serve --future
 ```
 
 To build the site for production (content is deployed in `docs` folder), use

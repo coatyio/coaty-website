@@ -7,6 +7,9 @@ includes:
       collection: docs-coaty-js
       highlight: true
     - file: cards.html
-      collection: docs-essentials
+      collection: docs-coaty-swift
       highlight: false
+    - file: cards.html
+      collection: docs-essentials
+      highlight: true
 ---

@@ -438,12 +438,15 @@ targeted at JavaScript/TypeScript, running as mobile and web apps in the browser
 or as Node.js services. Coaty JS provides a complete set of features as described
 in the [Developer Guide](https://coatyio.github.io/coaty-js/man/developer-guide/).
 
-Coaty JS is intended to be used as reference for porting Coaty to new
-programming languages and platforms. We intend to make additional framework
-implementations available as open source. For example,
-[Swift](https://www.apple.com/swift/) and [Unity](https://unity3d.com)
-implementations for programming collaborative Augmented Reality and Virtual
-Reality applications are in the works.
+[CoatySwift](https://github.com/coatyio/coaty-swift) is a subset implementation
+of the Coaty framework for the [Swift](https://www.apple.com/swift/) programming
+language targeted at iOS, iPadOS, and macOS applications.
+
+Coaty JS should be used as reference for porting Coaty to new programming
+languages and platforms. We intend to make additional framework implementations
+available as open source. For example, a [Unity](https://unity3d.com)
+implementation for programming collaborative Augmented Reality and Virtual
+Reality applications is in the works.
 
 ## Getting started
 
