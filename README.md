@@ -32,7 +32,7 @@ The Bootswatch theme is not contained in this project, it is bundled together wi
 Bootstrap 4 into the `_static/css/bootstrap.min.css` file. The custom Jekyll theme is defined
 in `_static/css/main.css`.
 
-This project is not a Jekyll project based on a Gemfile. Therefore, it cannot be
+This project is **not** a Jekyll project based on a Gemfile. Therefore, it cannot be
 served with `bundle exec jekyll serve`.
 
 ## License

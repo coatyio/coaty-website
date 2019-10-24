@@ -1,5 +1,5 @@
 ---
-order: 10
+order: 20
 title: "Developer guide"
 fa-icon: fab fa-dev
 readmore-external: "https://coatyio.github.io/coaty-swift/man/developer-guide/"

@@ -1,5 +1,5 @@
 ---
-order: 20
+order: 10
 title: "Tutorial"
 fa-icon: fas fa-chalkboard-teacher
 readmore-external: "https://coatyio.github.io/coaty-swift/tutorial/index.html"
