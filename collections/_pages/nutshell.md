@@ -63,9 +63,11 @@ Connecting to heterogenous IoT system landscapes is achieved by
 extensible environment connectors. Connectors serve as gateways
 to external networks, or bridges to connect to external systems.
 
-Coaty comes with an essential set of connectors to store and retrieve
-Coaty objects in SQL and noSQL database systems (see
-[here](#query-anywhere-retrieve-anywhere-persist-anywhere)).
+Coaty comes with an essential set of database connectors to [store and retrieve
+Coaty objects](#query-anywhere-retrieve-anywhere-persist-anywhere) in SQL and
+noSQL database systems. Additional connectors are realized as extension packages
+of the Coaty core framework. For example, an OPC UA connector seamlessly
+connects Coaty applications with OPC UA servers.
 
 ### Set up your agent
 
