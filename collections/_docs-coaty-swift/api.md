@@ -2,7 +2,7 @@
 order: 40
 title: "Framework API documentation"
 fa-icon: fab fa-readme
-readmore-external: "https://coatyio.github.io/coaty-swift/swiftdoc/index.html"
+readmore-external: "https://coatyio.github.io/coaty-swift/api/index.html"
 accent-color: info
 bg-color: light
 ---

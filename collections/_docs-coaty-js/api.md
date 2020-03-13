@@ -2,7 +2,7 @@
 order: 60
 title: "Framework API documentation"
 fa-icon: fab fa-readme
-readmore-external: "https://coatyio.github.io/coaty-js/tsdoc/index.html"
+readmore-external: "https://coatyio.github.io/coaty-js/api/index.html"
 accent-color: primary
 ---
 

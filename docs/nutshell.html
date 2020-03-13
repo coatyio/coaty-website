@@ -81,7 +81,7 @@
                     <img src="/_assets/brand/github-icon.svg" height="26" class="d-inline-block" alt="Logo github">
                 </a>
                 
-                <a class="nav-link" href="https://www.npmjs.com/package/coaty" target="_blank">
+                <a class="nav-link" href="https://www.npmjs.com/package/@coaty/core" target="_blank">
                     <img src="/_assets/brand/npm-square.svg" height="26" class="d-inline-block" alt="Logo npm">
                 </a>
                 
@@ -167,7 +167,8 @@ connects Coaty applications with OPC UA servers.</p>
 <h3 id="header-set-up-your-agent">Set up your agent</h3>
 
 <p>To set up a Coaty agent, you define, configure, and bootstrap an IoC <em>container</em>
-with its <em>controllers</em> that encapsulate the agent’s application logic:</p>
+with its <em>controllers</em> that encapsulate the agent’s application logic for
+communication:</p>
 
 <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Define container components</span>
 <span class="kd">const</span> <span class="nx">components</span><span class="p">:</span> <span class="nx">Components</span> <span class="o">=</span> <span class="p">{</span>
@@ -180,8 +181,8 @@ with its <em>controllers</em> that encapsulate the agent’s application logic:<
 <span class="c1">// Configure container components</span>
 <span class="kd">const</span> <span class="na">configuration</span><span class="p">:</span> <span class="nx">Configuration</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">common</span><span class="p">:</span> <span class="p">{</span>
-         <span class="c1">// Common options shared by all container components</span>
-         <span class="na">agentInfo</span><span class="p">:</span> <span class="p">...</span> <span class="p">,</span>
+         <span class="c1">// Common options shared by container components</span>
+         <span class="na">agentIdentity</span><span class="p">:</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">My Coaty agent</span><span class="dl">"</span> <span class="p">},</span>
          <span class="p">...</span>
     <span class="p">},</span>
     <span class="na">communication</span><span class="p">:</span> <span class="p">{</span>
@@ -220,15 +221,15 @@ with its <em>controllers</em> that encapsulate the agent’s application logic:<
     <span class="cm">/* Lifecycle methods called by framework */</span>
 
     <span class="nx">onInit</span><span class="p">()</span> <span class="p">{</span>
-        <span class="c1">// Define initializations here</span>
+        <span class="c1">// Define application-specific initializations here.</span>
     <span class="p">}</span>
 
     <span class="nx">onCommunicationManagerStarting</span><span class="p">()</span> <span class="p">{</span>
-        <span class="c1">// Set up observations for incoming communication events here</span>
+        <span class="c1">// Set up observations for incoming communication events here.</span>
     <span class="p">}</span>
 
     <span class="nx">onCommunicationManagerStopping</span><span class="p">()</span> <span class="p">{</span>
-        <span class="c1">// Clean up observations for incoming communication events here</span>
+        <span class="c1">// Define application-specific cleanup tasks here.</span>
     <span class="p">}</span>
 
     <span class="cm">/* Business logic methods */</span>
@@ -254,9 +255,9 @@ observable data streams. It is a combination of the best ideas from
 the Observer software design pattern, the Iterator pattern, and
 functional programming.</p>
 
-<p>Coaty adopts RP to handle incoming asynchronous communication events in
-context. You can process each event where needed according to the structure
-of your business logic, rather than having to implement a central event
+<p>Coaty adopts RP to handle incoming asynchronous communication events in context.
+You can process each event where needed according to the structure of your
+overall business logic, rather than having to implement a central event
 dispatching logic yourself.</p>
 
 <p>RP also raises the level of abstraction of your code, so you
@@ -292,7 +293,7 @@ Using RxJS observables in a Coaty controller is as simple as that:</p>
 <span class="k">this</span><span class="p">.</span><span class="nx">communicationManager</span>
     <span class="p">.</span><span class="nx">publishDiscover</span><span class="p">(</span><span class="nx">DiscoverEvent</span><span class="p">.</span><span class="nx">withExternalId</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">identity</span><span class="p">,</span> <span class="nx">machineId</span><span class="p">))</span>
     <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
-        <span class="nx">first</span><span class="p">(),</span>
+        <span class="nx">take</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
         <span class="nx">map</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span><span class="p">)</span>
         <span class="nx">timeout</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
     <span class="p">)</span>
@@ -311,7 +312,7 @@ Using RxJS observables in a Coaty controller is as simple as that:</p>
 <span class="kd">const</span> <span class="nx">discoveredTasks$</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">communicationManager</span>
     <span class="p">.</span><span class="nx">publishDiscover</span><span class="p">(</span><span class="nx">DiscoverEvent</span><span class="p">.</span><span class="nx">withObjectTypes</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">identity</span><span class="p">,</span> <span class="p">[</span><span class="dl">"</span><span class="s2">com.mycompany.myproject.SupportTask</span><span class="dl">"</span><span class="p">]))</span>
     <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
-        <span class="nx">filter</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="o">!!</span><span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span><span class="p">),</span>
+        <span class="nx">filter</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">),</span>
         <span class="nx">map</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span> <span class="k">as</span> <span class="nx">SupportTask</span><span class="p">)</span>
     <span class="p">);</span>
 
@@ -319,11 +320,12 @@ Using RxJS observables in a Coaty controller is as simple as that:</p>
     <span class="p">.</span><span class="nx">observeAdvertiseWithObjectType</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">identity</span><span class="p">,</span> <span class="dl">"</span><span class="s2">com.mycompany.myproject.SupportTask</span><span class="dl">"</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
         <span class="nx">map</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span> <span class="k">as</span> <span class="nx">SupportTask</span><span class="p">)</span>
+        <span class="nx">filter</span><span class="p">(</span><span class="nx">task</span> <span class="o">=&gt;</span> <span class="nx">task</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">)</span>
     <span class="p">);</span>
 
 <span class="k">return</span> <span class="nx">merge</span><span class="p">(</span><span class="nx">discoveredTasks$</span><span class="p">,</span> <span class="nx">advertisedTasks$</span><span class="p">)</span>
             <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">task</span> <span class="o">=&gt;</span> <span class="p">{</span>
-                <span class="c1">// Handle both discovered and advertised tasks in one place...</span>
+                <span class="c1">// Handle both discovered and advertised tasks as they are emitted...</span>
             <span class="p">});</span>
 </code></pre></div></div>
 
@@ -331,22 +333,22 @@ Using RxJS observables in a Coaty controller is as simple as that:</p>
 
 <h2 id="header-typed-object-model">Typed Object Model</h2>
 
-<p>You can model your domain data with Coaty’s platform-agnostic typed object model.
-It provides an extensible hierarchy of core object types for distributed data exchange:</p>
+<p>You can model your domain data with Coaty’s platform-agnostic typed object
+model. It provides an opinionated set of core object types to be used or
+extended by Coaty applications. These Coaty objects are the subject of
+communication between Coaty agents.</p>
 
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CoatyObject
   |
-  |-- User
-  |-- Device
-  |-- Component
   |-- Annotation
-  |-- Task
+  |-- Identity
+  |-- IoSource
+  |-- IoActor
   |-- Location
   |-- Log
   |-- Snapshot
-  |
-  |-- IoSource
-  |-- IoActor
+  |-- Task
+  |-- User
   |
   |-- Sensor
   |-- Thing
@@ -367,7 +369,7 @@ Coaty leverages the <a href="https://coatyio.github.io/coaty-js/man/sensor-thing
 <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">CoatyObject</span> <span class="p">{</span>
 
   <span class="c1">// Base core type</span>
-  <span class="nl">coreType</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CoatyObject</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">User</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">Device</span><span class="dl">"</span> <span class="o">|</span> <span class="p">...</span> <span class="p">;</span>
+  <span class="nl">coreType</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CoatyObject</span><span class="dl">"</span> <span class="o">|</span> <span class="p">...</span> <span class="p">;</span>
 
   <span class="c1">// Concrete type name</span>
   <span class="nl">objectType</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
@@ -383,9 +385,6 @@ Coaty leverages the <a href="https://coatyio.github.io/coaty-js/man/sensor-thing
 
   <span class="c1">// Object ID of parent object (optional)</span>
   <span class="nx">parentObjectId</span><span class="p">?:</span> <span class="nx">Uuid</span><span class="p">;</span>
-
-  <span class="c1">// Object ID of User object this object has been assigned (optional)</span>
-  <span class="nx">assigneeUserId</span><span class="p">?:</span> <span class="nx">Uuid</span><span class="p">;</span>
 
   <span class="c1">// Object ID of associated Location object (optional)</span>
   <span class="nx">locationId</span><span class="p">?:</span> <span class="nx">Uuid</span><span class="p">;</span>
@@ -481,14 +480,16 @@ push-based approach.</p>
 share, and update data on demand in a distributed system, and to request
 execution of context-filtered remote operations.</p>
 
-<p><img src="/_assets/nutshell/communication-event-patterns.png" alt="Communication event patterns" /></p>
+<p><img src="/_assets/nutshell/communication-event-patterns.png" alt="Communication event patterns" />
+<small><em>* Associate and IoValue events are used for Smart Routing internally.</em></small></p>
 
-<p>Coaty’s standardized communication protocol is build on top of
-exchangeable open-standard publish-subscribe (pub/sub) messaging protocols such as
+<p>Coaty’s standardized communication protocol is build on top of exchangeable
+open-standard publish-subscribe (pub/sub) messaging protocols such as
 <a href="http://mqtt.org/">MQTT</a> or <a href="https://wamp-proto.org/">WAMP</a>, but it does not
-expose the messaging primitives which are just an implementation detail.
-By choosing WebSocket-aware pub/sub messaging systems, Coaty agents can also
-fully run in mobile and web browsers directly interacting with other Coaty agents.</p>
+expose the messaging primitives which are just an implementation detail. By
+choosing WebSocket-aware pub/sub messaging systems, Coaty agents can also
+natively run in mobile and web browsers directly interacting with other Coaty
+agents.</p>
 
 <p>With the help of Reactive Programming, all Coaty event patterns are programmed
 in a simple, uniform way. You can find some examples in the section on
@@ -499,17 +500,15 @@ use cases, take a look at the <a href="https://coatyio.github.io/coaty-js/man/de
 
 <h2 id="header-smart-routing-of-iot-data">Smart routing of IoT data</h2>
 
-<p>Coaty provides what we call <em>Smart Routing</em> of IoT (sensor) data,
-where data is dynamically routed from sources to actors, i.e. consumers
-based on context. Backpressure strategies
-that enable data transfer rate controlled publishing of data are
-negotiated between sources and actors.</p>
+<p>Coaty provides what we call <em>Smart Routing</em> of IoT (sensor) data, where data is
+dynamically routed from sources to actors, i.e. consumers based on context.
+Backpressure strategies that enable data transfer rate controlled publishing of
+data are negotiated between sources and actors.</p>
 
-<p>Smart routing ensures that IoT data events published by sources are
-dispatched only to the currently relevant actors, depending on
-application-specific context logic which is defined by a set of rules.
-Coaty’s rule engine evaluates these rules and updates associations
-between sources and actors accordingly.</p>
+<p>Smart routing ensures that IoT data events published by sources are dispatched
+only to the currently relevant actors, depending on application-specific context
+logic which can be defined by a set of rules. Coaty’s rule engine evaluates
+these rules and updates associations between sources and actors accordingly.</p>
 
 <p>For details, take a look at the <a href="https://coatyio.github.io/coaty-js/man/developer-guide/#io-routing">Coaty JS Developer Guide</a>.</p>
 

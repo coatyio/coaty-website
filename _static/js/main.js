@@ -75,8 +75,8 @@ $(document).ready(function () {
     var now = new Date();
     var month = now.getMonth();
 
-    // Xmas time is between Dec 01 and Jan 10
-    if (month === 11 || (month === 0 && now.getDate() <= 10)) {
+    // Xmas time is between Dec 01 and Jan 06
+    if (month === 11 || (month === 0 && now.getDate() <= 06)) {
         $('.coaty-xmas-item').removeClass('d-none');
     } else {
         $('.coaty-xmas-item').addClass('d-none');

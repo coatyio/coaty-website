@@ -30,7 +30,7 @@ navigation-icons:
     link: "https://github.com/coatyio"
     icon: "/_assets/brand/github-icon.svg"
   npm:
-    link: "https://www.npmjs.com/package/coaty"
+    link: "https://www.npmjs.com/package/@coaty/core"
     icon: "/_assets/brand/npm-square.svg"
 
 collections:

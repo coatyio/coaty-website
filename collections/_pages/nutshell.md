@@ -72,7 +72,8 @@ connects Coaty applications with OPC UA servers.
 ### Set up your agent
 
 To set up a Coaty agent, you define, configure, and bootstrap an IoC *container*
-with its *controllers* that encapsulate the agent's application logic:
+with its *controllers* that encapsulate the agent's application logic for
+communication:
 
 ```ts
 // Define container components
@@ -86,8 +87,8 @@ const components: Components = {
 // Configure container components
 const configuration: Configuration = {
     common: {
-         // Common options shared by all container components
-         agentInfo: ... ,
+         // Common options shared by container components
+         agentIdentity: { name: "My Coaty agent" },
          ...
     },
     communication: {
@@ -125,15 +126,15 @@ class SupportTaskController extends Controller {
     /* Lifecycle methods called by framework */
 
     onInit() {
-        // Define initializations here
+        // Define application-specific initializations here.
     }
 
     onCommunicationManagerStarting() {
-        // Set up observations for incoming communication events here
+        // Set up observations for incoming communication events here.
     }
 
     onCommunicationManagerStopping() {
-        // Clean up observations for incoming communication events here
+        // Define application-specific cleanup tasks here.
     }
 
     /* Business logic methods */
@@ -159,9 +160,9 @@ observable data streams. It is a combination of the best ideas from
 the Observer software design pattern, the Iterator pattern, and
 functional programming.
 
-Coaty adopts RP to handle incoming asynchronous communication events in
-context. You can process each event where needed according to the structure
-of your business logic, rather than having to implement a central event
+Coaty adopts RP to handle incoming asynchronous communication events in context.
+You can process each event where needed according to the structure of your
+overall business logic, rather than having to implement a central event
 dispatching logic yourself.
 
 RP also raises the level of abstraction of your code, so you
@@ -199,7 +200,7 @@ this.communicationManager
 this.communicationManager
     .publishDiscover(DiscoverEvent.withExternalId(this.identity, machineId))
     .pipe(
-        first(),
+        take(1),
         map(event => event.eventData.object)
         timeout(5000)
     )
@@ -219,7 +220,7 @@ this.communicationManager
 const discoveredTasks$ = this.communicationManager
     .publishDiscover(DiscoverEvent.withObjectTypes(this.identity, ["com.mycompany.myproject.SupportTask"]))
     .pipe(
-        filter(event => !!event.eventData.object),
+        filter(event => event.eventData.object !== undefined),
         map(event => event.eventData.object as SupportTask)
     );
 
@@ -227,11 +228,12 @@ const advertisedTasks$ = this.communicationManager
     .observeAdvertiseWithObjectType(this.identity, "com.mycompany.myproject.SupportTask")
     .pipe(
         map(event => event.eventData.object as SupportTask)
+        filter(task => task !== undefined)
     );
 
 return merge(discoveredTasks$, advertisedTasks$)
             .subscribe(task => {
-                // Handle both discovered and advertised tasks in one place...
+                // Handle both discovered and advertised tasks as they are emitted...
             });
 ```
 
@@ -239,23 +241,23 @@ return merge(discoveredTasks$, advertisedTasks$)
 
 ## Typed Object Model
 
-You can model your domain data with Coaty's platform-agnostic typed object model.
-It provides an extensible hierarchy of core object types for distributed data exchange:
+You can model your domain data with Coaty's platform-agnostic typed object
+model. It provides an opinionated set of core object types to be used or
+extended by Coaty applications. These Coaty objects are the subject of
+communication between Coaty agents.
 
 ```text
 CoatyObject
   |
-  |-- User
-  |-- Device
-  |-- Component
   |-- Annotation
-  |-- Task
+  |-- Identity
+  |-- IoSource
+  |-- IoActor
   |-- Location
   |-- Log
   |-- Snapshot
-  |
-  |-- IoSource
-  |-- IoActor
+  |-- Task
+  |-- User
   |
   |-- Sensor
   |-- Thing
@@ -277,7 +279,7 @@ The base `CoatyObject` interface defines the following generic properties:
 interface CoatyObject {
 
   // Base core type
-  coreType: "CoatyObject" | "User" | "Device" | ... ;
+  coreType: "CoatyObject" | ... ;
 
   // Concrete type name
   objectType: string;
@@ -293,9 +295,6 @@ interface CoatyObject {
 
   // Object ID of parent object (optional)
   parentObjectId?: Uuid;
-
-  // Object ID of User object this object has been assigned (optional)
-  assigneeUserId?: Uuid;
 
   // Object ID of associated Location object (optional)
   locationId?: Uuid;
@@ -391,13 +390,15 @@ share, and update data on demand in a distributed system, and to request
 execution of context-filtered remote operations.
 
 ![Communication event patterns](/_assets/nutshell/communication-event-patterns.png)
+<small>_* Associate and IoValue events are used for Smart Routing internally._</small>
 
-Coaty's standardized communication protocol is build on top of
-exchangeable open-standard publish-subscribe (pub/sub) messaging protocols such as
+Coaty's standardized communication protocol is build on top of exchangeable
+open-standard publish-subscribe (pub/sub) messaging protocols such as
 [MQTT](http://mqtt.org/) or [WAMP](https://wamp-proto.org/), but it does not
-expose the messaging primitives which are just an implementation detail.
-By choosing WebSocket-aware pub/sub messaging systems, Coaty agents can also
-fully run in mobile and web browsers directly interacting with other Coaty agents.
+expose the messaging primitives which are just an implementation detail. By
+choosing WebSocket-aware pub/sub messaging systems, Coaty agents can also
+natively run in mobile and web browsers directly interacting with other Coaty
+agents.
 
 With the help of Reactive Programming, all Coaty event patterns are programmed
 in a simple, uniform way. You can find some examples in the section on
@@ -408,17 +409,15 @@ use cases, take a look at the [Coaty JS Developer Guide](https://coatyio.github.
 
 ## Smart routing of IoT data
 
-Coaty provides what we call *Smart Routing* of IoT (sensor) data,
-where data is dynamically routed from sources to actors, i.e. consumers
-based on context. Backpressure strategies
-that enable data transfer rate controlled publishing of data are
-negotiated between sources and actors.
+Coaty provides what we call *Smart Routing* of IoT (sensor) data, where data is
+dynamically routed from sources to actors, i.e. consumers based on context.
+Backpressure strategies that enable data transfer rate controlled publishing of
+data are negotiated between sources and actors.
 
-Smart routing ensures that IoT data events published by sources are
-dispatched only to the currently relevant actors, depending on
-application-specific context logic which is defined by a set of rules.
-Coaty's rule engine evaluates these rules and updates associations
-between sources and actors accordingly.
+Smart routing ensures that IoT data events published by sources are dispatched
+only to the currently relevant actors, depending on application-specific context
+logic which can be defined by a set of rules. Coaty's rule engine evaluates
+these rules and updates associations between sources and actors accordingly.
 
 For details, take a look at the [Coaty JS Developer Guide](https://coatyio.github.io/coaty-js/man/developer-guide/#io-routing).
 
