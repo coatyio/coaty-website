@@ -390,7 +390,7 @@ share, and update data on demand in a distributed system, and to request
 execution of context-filtered remote operations.
 
 ![Communication event patterns](/_assets/nutshell/communication-event-patterns.png)
-<small>_* Associate events are used for Smart Routing internally._</small>
+<small>_* Associate event is used internally by Smart Routing._</small>
 
 Coaty's standardized communication protocol is build on top of exchangeable
 open-standard publish-subscribe (pub/sub) messaging protocols such as
