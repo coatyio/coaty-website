@@ -278,7 +278,7 @@ Using RxJS observables in a Coaty controller is as simple as that:</p>
 <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Observe all incoming Advertise events for Task objects with status 'Done' */</span>
 
 <span class="k">this</span><span class="p">.</span><span class="nx">communicationManager</span>
-    <span class="p">.</span><span class="nx">observeAdvertiseWithCoreType</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">identity</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Task</span><span class="dl">"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">observeAdvertiseWithCoreType</span><span class="p">(</span><span class="dl">"</span><span class="s2">Task</span><span class="dl">"</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
         <span class="nx">map</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span> <span class="k">as</span> <span class="nx">Task</span><span class="p">),</span>
         <span class="nx">filter</span><span class="p">(</span><span class="nx">task</span> <span class="o">=&gt;</span> <span class="nx">task</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="nx">TaskStatus</span><span class="p">.</span><span class="nx">Done</span><span class="p">)</span>
@@ -291,7 +291,7 @@ Using RxJS observables in a Coaty controller is as simple as that:</p>
 <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Discover machine information for a given machine ID */</span>
 
 <span class="k">this</span><span class="p">.</span><span class="nx">communicationManager</span>
-    <span class="p">.</span><span class="nx">publishDiscover</span><span class="p">(</span><span class="nx">DiscoverEvent</span><span class="p">.</span><span class="nx">withExternalId</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">identity</span><span class="p">,</span> <span class="nx">machineId</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">publishDiscover</span><span class="p">(</span><span class="nx">DiscoverEvent</span><span class="p">.</span><span class="nx">withExternalId</span><span class="p">(</span><span class="nx">machineId</span><span class="p">))</span>
     <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
         <span class="nx">take</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
         <span class="nx">map</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span><span class="p">)</span>
@@ -310,14 +310,14 @@ Using RxJS observables in a Coaty controller is as simple as that:</p>
 <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Handle both discovered and advertised tasks in context as they are received */</span>
 
 <span class="kd">const</span> <span class="nx">discoveredTasks$</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">communicationManager</span>
-    <span class="p">.</span><span class="nx">publishDiscover</span><span class="p">(</span><span class="nx">DiscoverEvent</span><span class="p">.</span><span class="nx">withObjectTypes</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">identity</span><span class="p">,</span> <span class="p">[</span><span class="dl">"</span><span class="s2">com.mycompany.myproject.SupportTask</span><span class="dl">"</span><span class="p">]))</span>
+    <span class="p">.</span><span class="nx">publishDiscover</span><span class="p">(</span><span class="nx">DiscoverEvent</span><span class="p">.</span><span class="nx">withObjectTypes</span><span class="p">([</span><span class="dl">"</span><span class="s2">com.mycompany.myproject.SupportTask</span><span class="dl">"</span><span class="p">]))</span>
     <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
         <span class="nx">filter</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">),</span>
         <span class="nx">map</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span> <span class="k">as</span> <span class="nx">SupportTask</span><span class="p">)</span>
     <span class="p">);</span>
 
 <span class="kd">const</span> <span class="nx">advertisedTasks$</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">communicationManager</span>
-    <span class="p">.</span><span class="nx">observeAdvertiseWithObjectType</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">identity</span><span class="p">,</span> <span class="dl">"</span><span class="s2">com.mycompany.myproject.SupportTask</span><span class="dl">"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">observeAdvertiseWithObjectType</span><span class="p">(</span><span class="dl">"</span><span class="s2">com.mycompany.myproject.SupportTask</span><span class="dl">"</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
         <span class="nx">map</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span> <span class="k">as</span> <span class="nx">SupportTask</span><span class="p">)</span>
         <span class="nx">filter</span><span class="p">(</span><span class="nx">task</span> <span class="o">=&gt;</span> <span class="nx">task</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">)</span>
@@ -377,10 +377,10 @@ Coaty leverages the <a href="https://coatyio.github.io/coaty-js/man/sensor-thing
   <span class="c1">// A descriptive name for the object</span>
   <span class="nl">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
 
-  <span class="c1">// Unique identity of the object</span>
+  <span class="c1">// Unique identifier of the object</span>
   <span class="nl">objectId</span><span class="p">:</span> <span class="nx">Uuid</span><span class="p">;</span>
 
-  <span class="c1">// Identity of an object relative to an external system (optional)</span>
+  <span class="c1">// Identifier of an object relative to an external system (optional)</span>
   <span class="nx">externalId</span><span class="p">?:</span> <span class="nx">string</span><span class="p">;</span>
 
   <span class="c1">// Object ID of parent object (optional)</span>

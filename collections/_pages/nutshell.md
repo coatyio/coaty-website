@@ -184,7 +184,7 @@ Using RxJS observables in a Coaty controller is as simple as that:
 /* Observe all incoming Advertise events for Task objects with status 'Done' */
 
 this.communicationManager
-    .observeAdvertiseWithCoreType(this.identity, "Task")
+    .observeAdvertiseWithCoreType("Task")
     .pipe(
         map(event => event.eventData.object as Task),
         filter(task => task.status === TaskStatus.Done)
@@ -198,7 +198,7 @@ this.communicationManager
 /* Discover machine information for a given machine ID */
 
 this.communicationManager
-    .publishDiscover(DiscoverEvent.withExternalId(this.identity, machineId))
+    .publishDiscover(DiscoverEvent.withExternalId(machineId))
     .pipe(
         take(1),
         map(event => event.eventData.object)
@@ -218,14 +218,14 @@ this.communicationManager
 /* Handle both discovered and advertised tasks in context as they are received */
 
 const discoveredTasks$ = this.communicationManager
-    .publishDiscover(DiscoverEvent.withObjectTypes(this.identity, ["com.mycompany.myproject.SupportTask"]))
+    .publishDiscover(DiscoverEvent.withObjectTypes(["com.mycompany.myproject.SupportTask"]))
     .pipe(
         filter(event => event.eventData.object !== undefined),
         map(event => event.eventData.object as SupportTask)
     );
 
 const advertisedTasks$ = this.communicationManager
-    .observeAdvertiseWithObjectType(this.identity, "com.mycompany.myproject.SupportTask")
+    .observeAdvertiseWithObjectType("com.mycompany.myproject.SupportTask")
     .pipe(
         map(event => event.eventData.object as SupportTask)
         filter(task => task !== undefined)
@@ -287,10 +287,10 @@ interface CoatyObject {
   // A descriptive name for the object
   name: string;
 
-  // Unique identity of the object
+  // Unique identifier of the object
   objectId: Uuid;
 
-  // Identity of an object relative to an external system (optional)
+  // Identifier of an object relative to an external system (optional)
   externalId?: string;
 
   // Object ID of parent object (optional)
