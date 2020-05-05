@@ -364,7 +364,7 @@ characteristics of both classic request-response and publish-subscribe communica
 In contrast to classic client-server systems, all Coaty participants are equal in that
 they can act both as producers/requesters and consumers/responders.
 
-One of the unique features of Coaty communication is the fact that a single request in principal
+One of the unique features of Coaty communication is the fact that a single request in principle
 can yield multiple responses over time, *even* from the same responder. The use case specific
 logic implemented by the requester determines how to handle such responses. For example,
 the requester can decide to
