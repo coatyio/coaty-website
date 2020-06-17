@@ -38,7 +38,10 @@ collections:
     title: "Learn how to use Coaty JS"
     more-text: "Open"
   docs-coaty-swift:
-    title: "Learn how to use CoatySwift"
+    title: "Learn how to use Coaty Swift"
+    more-text: "Open"
+  docs-bindings:
+    title: "Coaty communication bindings"
     more-text: "Open"
   docs-essentials:
     title: "Essentials"

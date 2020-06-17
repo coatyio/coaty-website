@@ -7,4 +7,4 @@ accent-color: info
 bg-color: light
 ---
 
-CoatySwift includes a step-by-step guide on how to set up a basic CoatySwift application.
+Coaty Swift includes a step-by-step guide on how to set up a basic Coaty Swift application.

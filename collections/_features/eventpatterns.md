@@ -8,6 +8,6 @@ accent-color: primary
 
 Use event-based communication flows with one-to-many and many-to-many
 request-response patterns to realize decentralized prosumer scenarios.
-Coaty's standardized communication protocol is build on top of
+Coaty's standardized communication event patterns are build on top of
 exchangeable open-standard publish-subscribe messaging protocols such
 as MQTT or WAMP.

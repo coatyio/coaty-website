@@ -8,4 +8,4 @@ bg-color: light
 ---
   
 The API documentation of all public type and member definitions of the
-CoatySwift framework.
+Coaty Swift framework.

@@ -7,6 +7,6 @@ accent-color: info
 bg-color: light
 ---
 
-Covers everything a Swift developer needs to know about using the CoatySwift
+Covers everything a Swift developer needs to know about using the Coaty Swift
 framework to develop collaborative IoT applications targeting iOS, iPadOS, and
 macOS.

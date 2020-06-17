@@ -43,6 +43,7 @@ collections_dir: collections
 collections:
   docs-coaty-js:
   docs-coaty-swift:
+  docs-bindings:
   docs-essentials:
   features:
   testimonials:

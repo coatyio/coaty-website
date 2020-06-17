@@ -8,4 +8,4 @@ bg-color: light
 ---
   
 In case you want to know why certain things have been implemented in a
-particular way in the CoatySwift implementation.
+particular way in the Coaty Swift implementation.

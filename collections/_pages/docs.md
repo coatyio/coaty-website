@@ -10,6 +10,9 @@ includes:
       collection: docs-coaty-swift
       highlight: false
     - file: cards.html
-      collection: docs-essentials
+      collection: docs-bindings
       highlight: true
+    - file: cards.html
+      collection: docs-essentials
+      highlight: false
 ---

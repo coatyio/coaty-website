@@ -8,5 +8,5 @@ bg-color: light
 ---
 
 Coaty includes a template and a set of fully documented code examples that
-demonstrate best practices and typical usage patterns for CoatySwift
+demonstrate best practices and typical usage patterns for Coaty Swift
 applications.
