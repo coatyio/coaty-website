@@ -415,14 +415,16 @@ execution of context-filtered remote operations.
 ![Communication event patterns](/_assets/nutshell/communication-event-patterns.png)
 <small>_* Associate event is used internally by Smart Routing._</small>
 
-Coaty's standardized communication event patterns are build on top of
-interchangeable open-standard publish-subscribe (pub/sub) messaging protocols
-such as [MQTT](http://mqtt.org/) or [WAMP](https://wamp-proto.org/). Providing
-*communication bindings*, you can choose a specific messaging transport for your
-Coaty application while keeping the set of communication event patterns and your
-application code completely unaffected. By choosing a WebSocket-aware
-communication binding, Coaty agents can also natively run in mobile and web
-browsers directly interacting with other Coaty agents.
+Coaty's standardized [communication event
+patterns](https://coatyio.github.io/coaty-js/man/communication-events/) are
+build on top of interchangeable open-standard publish-subscribe (pub/sub)
+messaging protocols such as [MQTT](http://mqtt.org/) or
+[WAMP](https://wamp-proto.org/). Providing *communication bindings*, you can
+choose a specific messaging transport for your Coaty application while keeping
+the set of communication event patterns and your application code completely
+unaffected. By choosing a WebSocket-aware communication binding, Coaty agents
+can also natively run in mobile and web browsers directly interacting with other
+Coaty agents.
 
 With the help of Reactive Programming, all Coaty event patterns are programmed
 in a simple, uniform way. You can find some examples in the section on [Reactive
