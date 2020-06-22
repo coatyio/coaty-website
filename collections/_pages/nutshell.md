@@ -23,7 +23,7 @@ At its core, Coaty offers a standardized set of event-based communication
 patterns for Coaty agents to talk to each other by one-way/two-way and
 one-to-many/many-to-many communication flows without the need to know about each
 other. Subject of communication is domain-specific data based on a typed,
-extensible object model. Thereby, data in a distributed system can be shared
+extensible object model. Thereby, objects in a distributed system can be shared
 (Advertise, Channel), discovered (Discover-Resolve), queried (Query-Retrieve),
 as well as modified and persisted (Update-Complete). Moreover, remote operations
 targeted at multiple executing agents can be requested (Call-Return).
@@ -148,16 +148,16 @@ that is an integral part of each IoC container. It provides a set of methods to
 publish and observe communication events asynchronously.
 
 You can use the communication manager without the need to understand and deal
-with details of the underlying publish-subscribe messaging protocol, including
-auto-reconnect, automatic re-subscription upon connection, and queued offline
-publishing.
+with the complexities of the underlying publish-subscribe messaging protocol,
+including auto-reconnect, automatic re-subscription upon connection, queued
+offline publishing, message dispatching, and payload coding.
 
-The communication manager also supports distributed lifecycle management of
-Coaty agents in a decentralized application. A Coaty agent can keep track of
-other agents or specific Coaty objects by monitoring agent identities or custom
-object types which are advertised by joining agents and deadvertised by leaving
-agents. Tracking also handles abnormal disconnection or termination of an agent,
-e.g. when the connection is lost temporarily or when its process crashes or is
+The communication manager also supports *distributed lifecycle management* of
+Coaty agents in a decentralized application. A Coaty agent can track other
+agents or specific Coaty objects by observing agent identities or custom object
+types which are advertised by joining agents and deadvertised by leaving agents.
+Tracking also handles abnormal disconnection or termination of an agent, e.g.
+when its connection is lost temporarily or when its process crashes or is
 killed.
 
 <a name="reactive-programming-for-asynchronous-event-handling"></a>
