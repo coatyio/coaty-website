@@ -22,11 +22,12 @@ devices, edge and cloud services can be considered equivalent.
 At its core, Coaty offers a standardized set of event-based communication
 patterns for Coaty agents to talk to each other by one-way/two-way and
 one-to-many/many-to-many communication flows without the need to know about each
-other. Subject of communication is domain-specific data based on a typed,
-extensible object model. Thereby, objects in a distributed system can be shared
-(Advertise, Channel), discovered (Discover-Resolve), queried (Query-Retrieve),
-as well as modified and persisted (Update-Complete). Moreover, remote operations
-targeted at multiple executing agents can be requested (Call-Return).
+other. Subject of communication is domain-specific data based on a simple,
+extensible typed object model. Thereby, objects in a distributed system can be
+shared (Advertise, Channel), discovered (Discover-Resolve), queried
+(Query-Retrieve), as well as modified and persisted (Update-Complete). Moreover,
+remote operations targeted at multiple executing agents can be requested
+(Call-Return).
 
 We think collaborative applications often have a natural need for such powerful
 forms of interaction. Restricting interaction to strongly coupled one-to-one
@@ -43,6 +44,33 @@ standards.
 We believe Coaty is a major step forward in practice that allows developers to
 create more powerful collaborative applications with less complexity and in less
 time.
+
+## Why use Coaty
+
+To realize decentralized, collaborative applications Coaty leverages the
+publish-subscribe paradigm by making use of existing pub-sub messaging
+protocols. The reason is to provide a powerful yet easy to use high-level
+abstraction of essential collaboration features without coping with the
+low-level complexities of pub-sub transport layers:
+
+* **Beyond messaging**: object-centric interaction replaces message-centric
+  programming.
+* **Efficient and easy programmability**: use Reactive Programming for handling
+  asynchrounous event streams in a declarative way.
+* **Two-way communication patterns and many-to-many communication flows**:
+  realized on top of classic pub-sub communication to enable sophisticated
+  features such as live queries or context-filtered remote operation calls with
+  progressive results.
+* **Routing of information flows** by dynamic subscriptions based on context.
+* **Spatial filtering of information flows** by location and proximity aware
+  subscriptions.
+* **Adapt communication infrastructure to your use case needs**: choose among
+  different broker-based or brokerless transport bindings.
+* **Track liveliness of objects and agents** across your distributed system and
+  their lifecycles.
+* **Cross platform deployments** by interoperable framework implementations.
+
+Read on to gain a deeper understanding of Coaty's underlying technical concepts.
 
 <a name="lightweight-and-modular-framework-architecture"></a>
 
@@ -153,12 +181,12 @@ including auto-reconnect, automatic re-subscription upon connection, queued
 offline publishing, message dispatching, and payload coding.
 
 The communication manager also supports *distributed lifecycle management* of
-Coaty agents in a decentralized application. A Coaty agent can track other
-agents or specific Coaty objects by observing agent identities or custom object
-types which are advertised by joining agents and deadvertised by leaving agents.
-Tracking also handles abnormal disconnection or termination of an agent, e.g.
-when its connection is lost temporarily or when its process crashes or is
-killed.
+Coaty agents in a decentralized application. A Coaty agent can keep track of
+other agents or specific Coaty objects by observing agent identities or custom
+object types which are advertised and made discoverable by joining agents, and
+deadvertised by leaving agents. Tracking also handles late-joining agents, and
+abnormal disconnection or termination of an agent, e.g. when its connection is
+lost temporarily or when its process crashes or is killed.
 
 <a name="reactive-programming-for-asynchronous-event-handling"></a>
 
@@ -170,8 +198,8 @@ software design pattern, the Iterator pattern, and functional programming.
 
 Coaty adopts RP to handle incoming asynchronous communication events modular and
 in context. You can process each event where needed according to the structure
-of your overall business logic, rather than having to implement a central event
-dispatching logic yourself.
+of your overall business logic, rather than having to implement a (central)
+event dispatching logic yourself.
 
 RP also raises the level of abstraction of your code, so you can focus on the
 interdependence of events rather than having to constantly cope with a large
@@ -418,13 +446,14 @@ execution of context-filtered remote operations.
 Coaty's standardized [communication event
 patterns](https://coatyio.github.io/coaty-js/man/communication-events/) are
 build on top of interchangeable open-standard publish-subscribe (pub/sub)
-messaging protocols such as [MQTT](http://mqtt.org/) or
-[WAMP](https://wamp-proto.org/). Providing *communication bindings*, you can
-choose a specific messaging transport for your Coaty application while keeping
-the set of communication event patterns and your application code completely
-unaffected. By choosing a WebSocket-aware communication binding, Coaty agents
-can also natively run in mobile and web browsers directly interacting with other
-Coaty agents.
+messaging protocols which are either broker-based, such as
+[MQTT](http://mqtt.org/) or [WAMP](https://wamp-proto.org/), or brokerless like
+[DDS](https://www.dds-foundation.org/) or peer-to-peer approaches. Providing
+*communication bindings*, you can choose a specific messaging transport for your
+Coaty application while keeping the set of communication event patterns and your
+application code completely unaffected. By choosing a WebSocket-aware
+communication binding, Coaty agents can also natively run in mobile and web
+browsers.
 
 With the help of Reactive Programming, all Coaty event patterns are programmed
 in a simple, uniform way. You can find some examples in the section on [Reactive
@@ -436,10 +465,10 @@ Guide](https://coatyio.github.io/coaty-js/man/developer-guide/#communication-eve
 
 ## Smart routing of IoT data
 
-Coaty provides what we call *Smart Routing* of IoT (sensor) data, where data is
-dynamically routed from sources to actors, i.e. consumers based on context.
-Backpressure strategies that enable data transfer rate controlled publishing of
-data are negotiated between sources and actors.
+Coaty provides what we call *Smart Routing* of IoT (sensor) data, or also called
+IO Routing, where data is dynamically routed from sources to actors, i.e.
+consumers based on context. Backpressure strategies that enable data transfer
+rate controlled publishing of data are negotiated between sources and actors.
 
 Smart routing ensures that IoT data events published by sources are dispatched
 only to the currently relevant actors, depending on application-specific context
