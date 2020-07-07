@@ -13,6 +13,9 @@ includes:
       collection: docs-bindings
       highlight: true
     - file: cards.html
-      collection: docs-essentials
+      collection: docs-connectors
       highlight: false
+    - file: cards.html
+      collection: docs-essentials
+      highlight: true
 ---

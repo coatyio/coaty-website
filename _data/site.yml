@@ -43,6 +43,9 @@ collections:
   docs-bindings:
     title: "Coaty communication bindings"
     more-text: "Open"
+  docs-connectors:
+    title: "Coaty connectors"
+    more-text: "Open"
   docs-essentials:
     title: "Essentials"
     more-text: "Open"
