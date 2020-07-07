@@ -441,7 +441,6 @@ share, and update data on demand in a distributed system, and to request
 execution of context-filtered remote operations.
 
 ![Communication event patterns](/_assets/nutshell/communication-event-patterns.png)
-<small>_* Associate event is used internally by Smart Routing._</small>
 
 Coaty's standardized [communication event
 patterns](https://coatyio.github.io/coaty-js/man/communication-events/) are
