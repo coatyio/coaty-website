@@ -1,6 +1,6 @@
 ---
 order: 10
-title: "MQTT"
+title: "Coaty over MQTT"
 fa-icon: fas fa-comments
 readmore-external: "https://coatyio.github.io/binding.mqtt.js/man/communication-protocol/"
 accent-color: primary

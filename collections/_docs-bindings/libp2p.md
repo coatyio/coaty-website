@@ -1,6 +1,6 @@
 ---
 order: 30
-title: "libp2p&nbsp;&nbsp;<small>(experimental)</small>"
+title: "Coaty over libp2p<br><small>(experimental)</small>"
 fa-icon: fas fa-comments
 readmore-external: "https://coatyio.github.io/binding.libp2p.js/man/communication-protocol/"
 accent-color: primary

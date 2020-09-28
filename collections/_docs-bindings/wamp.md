@@ -1,6 +1,6 @@
 ---
 order: 20
-title: "WAMP"
+title: "Coaty over WAMP"
 fa-icon: fas fa-comments
 readmore-external: "https://coatyio.github.io/binding.wamp.js/man/communication-protocol/"
 accent-color: primary
