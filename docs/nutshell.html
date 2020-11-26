@@ -152,7 +152,7 @@ low-level complexities of pub-sub transport layers:</p>
   <li><strong>Beyond messaging</strong>: object-centric interaction replaces message-centric
 programming.</li>
   <li><strong>Efficient and easy programmability</strong>: use Reactive Programming for handling
-asynchrounous event streams in a declarative way.</li>
+asynchronous event streams in a declarative way.</li>
   <li><strong>Two-way communication patterns and many-to-many communication flows</strong>:
 realized on top of classic pub-sub communication to enable sophisticated
 features such as live queries or context-filtered remote operation calls with
@@ -210,7 +210,7 @@ communication:</p>
 <span class="p">};</span>
 
 <span class="c1">// Configure container components</span>
-<span class="kd">const</span> <span class="na">configuration</span><span class="p">:</span> <span class="nx">Configuration</span> <span class="o">=</span> <span class="p">{</span>
+<span class="kd">const</span> <span class="nx">configuration</span><span class="p">:</span> <span class="nx">Configuration</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">common</span><span class="p">:</span> <span class="p">{</span>
          <span class="c1">// Common options shared by container components</span>
          <span class="na">agentIdentity</span><span class="p">:</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">My Coaty agent</span><span class="dl">"</span> <span class="p">},</span>
@@ -414,16 +414,16 @@ API</a>.</p>
   <span class="nl">coreType</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CoatyObject</span><span class="dl">"</span> <span class="o">|</span> <span class="p">...</span> <span class="p">;</span>
 
   <span class="c1">// Concrete type name</span>
-  <span class="nl">objectType</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">objectType</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
 
   <span class="c1">// A descriptive name for the object</span>
-  <span class="nl">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
 
   <span class="c1">// Unique identifier of the object</span>
   <span class="nl">objectId</span><span class="p">:</span> <span class="nx">Uuid</span><span class="p">;</span>
 
   <span class="c1">// Identifier of an object relative to an external system (optional)</span>
-  <span class="nl">externalId</span><span class="p">?:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">externalId</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
 
   <span class="c1">// Object ID of parent object (optional)</span>
   <span class="nl">parentObjectId</span><span class="p">?:</span> <span class="nx">Uuid</span><span class="p">;</span>
@@ -458,29 +458,6 @@ types with additional properties and specify a canonical object type name:</p>
     <span class="nl">urgency</span><span class="p">:</span> <span class="nx">SupportTaskUrgency</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
-
-<p><a name="query-anywhere-retrieve-anywhere-persist-anywhere"></a></p>
-
-<h2 id="header-query-anwhere---retrieve-anywhere---persist-anywhere">Query anwhere - retrieve anywhere - persist anywhere</h2>
-
-<p>Coaty communication provides a <a href="#communication-event-patterns">Query-Retrieve</a>
-event pattern to seamlessly query distributed domain-specific data across
-decentralized application components, and retrieve them from a single or
-multiple storage systems, no matter if storage is persistent in a database or in
-memory. Query-Retrieve enables declarative, seamless and transparent retrieval
-of Coaty objects across Coaty agents independent of storage implementations. The
-Query event’s object filter which specifies selection and ordering criteria can
-be directly passed to Coaty’s <em>Unified Storage API</em> for object retrieval.</p>
-
-<p>Using the Unified Storage API, Coaty objects can be persisted schemalessly in
-arbitary data sources. The database-agnostic API provides a common interface to
-store and retrieve data from NoSQL and relational SQL data stores using the
-notion of <em>adapters</em> to connect to specific databases.</p>
-
-<p>The Coaty framework provides ready-to-use built-in adapters for NoSQL/SQL-based
-storage in e.g. PostgreSQL and SQLite databases. In addition, it provides an
-in-memory storage. You can also write your own custom adapter to connect to a
-specific database not yet supported by the framework.</p>
 
 <p><a name="communication-foundation"></a></p>
 
@@ -552,6 +529,29 @@ in a simple, uniform way. You can find some examples in the section on <a href="
 Programming</a>. For details and advanced use
 cases, take a look at the <a href="https://coatyio.github.io/coaty-js/man/developer-guide/#communication-event-patterns">Coaty JS Developer
 Guide</a>.</p>
+
+<p><a name="query-anywhere-retrieve-anywhere-persist-anywhere"></a></p>
+
+<h2 id="header-query-anwhere---retrieve-anywhere---persist-anywhere">Query anwhere - retrieve anywhere - persist anywhere</h2>
+
+<p>Coaty communication provides a <a href="#communication-event-patterns">Query-Retrieve</a>
+event pattern to seamlessly query distributed domain-specific data across
+decentralized application components, and retrieve them from a single or
+multiple storage systems, no matter if storage is persistent in a database or in
+memory. Query-Retrieve enables declarative, seamless and transparent retrieval
+of Coaty objects across Coaty agents independent of storage implementations. The
+Query event’s object filter which specifies selection and ordering criteria can
+be directly passed to Coaty’s <em>Unified Storage API</em> for object retrieval.</p>
+
+<p>Using the Unified Storage API, Coaty objects can be persisted schemalessly in
+arbitary data sources. The database-agnostic API provides a common interface to
+store and retrieve data from NoSQL and relational SQL data stores using the
+notion of <em>adapters</em> to connect to specific databases.</p>
+
+<p>The Coaty framework provides ready-to-use built-in adapters for NoSQL/SQL-based
+storage in e.g. PostgreSQL and SQLite databases. In addition, it provides an
+in-memory storage. You can also write your own custom adapter to connect to a
+specific database not yet supported by the framework.</p>
 
 <p><a name="smart-routing-of-iot-data"></a></p>
 

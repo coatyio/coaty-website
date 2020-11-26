@@ -56,7 +56,7 @@ low-level complexities of pub-sub transport layers:
 * **Beyond messaging**: object-centric interaction replaces message-centric
   programming.
 * **Efficient and easy programmability**: use Reactive Programming for handling
-  asynchrounous event streams in a declarative way.
+  asynchronous event streams in a declarative way.
 * **Two-way communication patterns and many-to-many communication flows**:
   realized on top of classic pub-sub communication to enable sophisticated
   features such as live queries or context-filtered remote operation calls with
@@ -368,29 +368,6 @@ interface SupportTask extends Task {
 }
 ```
 
-<a name="query-anywhere-retrieve-anywhere-persist-anywhere"></a>
-
-## Query anwhere - retrieve anywhere - persist anywhere
-
-Coaty communication provides a [Query-Retrieve](#communication-event-patterns)
-event pattern to seamlessly query distributed domain-specific data across
-decentralized application components, and retrieve them from a single or
-multiple storage systems, no matter if storage is persistent in a database or in
-memory. Query-Retrieve enables declarative, seamless and transparent retrieval
-of Coaty objects across Coaty agents independent of storage implementations. The
-Query event’s object filter which specifies selection and ordering criteria can
-be directly passed to Coaty's *Unified Storage API* for object retrieval.
-
-Using the Unified Storage API, Coaty objects can be persisted schemalessly in
-arbitary data sources. The database-agnostic API provides a common interface to
-store and retrieve data from NoSQL and relational SQL data stores using the
-notion of *adapters* to connect to specific databases.
-
-The Coaty framework provides ready-to-use built-in adapters for NoSQL/SQL-based
-storage in e.g. PostgreSQL and SQLite databases. In addition, it provides an
-in-memory storage. You can also write your own custom adapter to connect to a
-specific database not yet supported by the framework.
-
 <a name="communication-foundation"></a>
 
 ## Communication foundation
@@ -459,6 +436,29 @@ in a simple, uniform way. You can find some examples in the section on [Reactive
 Programming](#reactive-programming-examples). For details and advanced use
 cases, take a look at the [Coaty JS Developer
 Guide](https://coatyio.github.io/coaty-js/man/developer-guide/#communication-event-patterns).
+
+<a name="query-anywhere-retrieve-anywhere-persist-anywhere"></a>
+
+## Query anwhere - retrieve anywhere - persist anywhere
+
+Coaty communication provides a [Query-Retrieve](#communication-event-patterns)
+event pattern to seamlessly query distributed domain-specific data across
+decentralized application components, and retrieve them from a single or
+multiple storage systems, no matter if storage is persistent in a database or in
+memory. Query-Retrieve enables declarative, seamless and transparent retrieval
+of Coaty objects across Coaty agents independent of storage implementations. The
+Query event’s object filter which specifies selection and ordering criteria can
+be directly passed to Coaty's *Unified Storage API* for object retrieval.
+
+Using the Unified Storage API, Coaty objects can be persisted schemalessly in
+arbitary data sources. The database-agnostic API provides a common interface to
+store and retrieve data from NoSQL and relational SQL data stores using the
+notion of *adapters* to connect to specific databases.
+
+The Coaty framework provides ready-to-use built-in adapters for NoSQL/SQL-based
+storage in e.g. PostgreSQL and SQLite databases. In addition, it provides an
+in-memory storage. You can also write your own custom adapter to connect to a
+specific database not yet supported by the framework.
 
 <a name="smart-routing-of-iot-data"></a>
 
