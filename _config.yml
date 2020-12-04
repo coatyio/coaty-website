@@ -41,6 +41,7 @@ future: false
 collections_dir: collections
 
 collections:
+  publications:
   docs-coaty-js:
   docs-coaty-swift:
   docs-bindings:

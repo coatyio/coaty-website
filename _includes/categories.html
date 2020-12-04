@@ -1,0 +1,13 @@
+{% assign sorted-collection = site[include.collection] | sort: 'order' %}
+{% for item in sorted-collection %}
+{% assign bgclass = '' %}
+{% if item.highlight == true %}
+{% assign bgclass = 'bg-light' %}
+{% endif %}
+<section class="categories {{ bgclass }}">
+    <div class="container pb-2">
+        <h2 class="text-left pt-4">{{ item.title }}</h2>
+        <div class="mt-3">{{ item.content | markdownify }}</div>
+    </div>
+</section>
+{% endfor %}
