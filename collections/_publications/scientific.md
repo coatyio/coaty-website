@@ -5,6 +5,12 @@ order: 40
 highlight: true
 ---
 
+* Y. Vytruchenko; C. Nentwich; M. Sauer; J. Nickles. _[Resource Allocation in
+  Decentralized, Self-organized, Multi-agent Industrial Systems Using Deep
+  Deterministic Policy
+  Gradient](https://ieeexplore.ieee.org/document/9673014){:target="_blank"}_.
+  2021 IEEE International Conference on Industrial Engineering and Engineering
+  Management (IEEM), 2021, pp. 1198-1202.
 * P. Aluko-Obe, J. Brings, M. Daun, L. Feeken, E. Mirzaei, M. Neumann, J.
   Nickles, S. Rösel, M. Sauer, H. Schlingloff, I. Stierand, J. Zernickel.
   _[Model-Based Engineering of Collaborative Embedded Systems, ch. Goal-Based
