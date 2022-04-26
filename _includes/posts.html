@@ -1,5 +1,14 @@
 <section class="container pb-5 pt-4">
     {% for post in site.posts %}
+    {% if post.pin == true and post.categories contains include.collection %}
+    <h4>{{ post.title }}</h4>
+    <small class="text-muted">{{ post.date | date: "%B %e, %Y" }}</small>
+    <div class="mt-2 mb-2">{{ post.content | markdownify }}</div>
+    <hr>
+    {% endif %}
+    {% endfor %}
+    {% for post in site.posts %}
+    {% if post.pin == false or post.pin == nil %}
     {% if post.categories contains include.collection %}
     <h4>{{ post.title }}</h4>
     <small class="text-muted">{{ post.date | date: "%B %e, %Y" }}</small>
@@ -7,6 +16,7 @@
     {% unless forloop.last %}
     <hr>
     {% endunless %}
+    {% endif %}
     {% endif %}
     {% endfor %}
 </section>
