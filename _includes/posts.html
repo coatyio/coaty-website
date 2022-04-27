@@ -8,7 +8,7 @@
     {% endif %}
     {% endfor %}
     {% for post in site.posts %}
-    {% if post.pin == false or post.pin == nil %}
+    {% unless post.pin == true %}
     {% if post.categories contains include.collection %}
     <h4>{{ post.title }}</h4>
     <small class="text-muted">{{ post.date | date: "%B %e, %Y" }}</small>
@@ -17,6 +17,6 @@
     <hr>
     {% endunless %}
     {% endif %}
-    {% endif %}
+    {% endunless %}
     {% endfor %}
 </section>
