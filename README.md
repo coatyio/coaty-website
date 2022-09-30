@@ -1,11 +1,12 @@
 # Coaty Website with Jekyll
 
-This project contains the sources of the [Coaty website](https://coaty.io) hosted on GitHub Pages.
+This project contains the sources of the [Coaty website](https://coaty.io)
+hosted on GitHub Pages.
 
 ## Build and Deploy
 
-The Coaty website uses [Jekyll](https://jekyllrb.com/) as a static site generator.
-As a prerequisite install Jekyll on your local machine.
+The Coaty website uses [Jekyll](https://jekyllrb.com/) as a static site
+generator. As a prerequisite install Jekyll on your local machine.
 
 To build and serve the site while developing locally, use
 
@@ -28,14 +29,18 @@ branch. Then, the GitHub Pages website will be updated automatically from the
 
 ## Remarks
 
-This project uses a custom Jekyll theme based on a customized version of a
-free to use, open source Bootstrap themes created by [Bootswatch](https://bootswatch.com/).
-The Bootswatch theme is not contained in this project, it is bundled together with
-Bootstrap 4 into the `_static/css/bootstrap.min.css` file. The custom Jekyll theme is defined
-in `_static/css/main.css`.
+This project uses a custom Jekyll theme based on a customized version of a free
+to use, open source Bootstrap themes created by
+[Bootswatch](https://bootswatch.com/). The Bootswatch theme is not contained in
+this project, it is bundled together with Bootstrap 4 into the
+`_static/css/bootstrap.min.css` file. The custom Jekyll theme is defined in
+`_static/css/main.css`.
 
-This project is **not** a Jekyll project based on a Gemfile. Therefore, it cannot be
-served with `bundle exec jekyll serve`.
+This project is **not** a Jekyll project based on a Gemfile. Therefore, it
+cannot be served with `bundle exec jekyll serve`.
+
+To pin a certain news announcement to the top of the News page, add `pin: true`
+to its header.
 
 ## License
 
