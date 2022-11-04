@@ -5,6 +5,9 @@ order: 10
 highlight: false
 ---
 
+* _[Coaty - Publish OSS to drive Industrial Research and Innovation
+  Projects](https://opensource.siemens.com/events/2022/slides/Markus_Sauer_and_Hubertus_Hohl_Coaty_Publish_OSS_to_drive_Industrial_Research_and_Innovation_Projects.pdf){:target="_blank"}_.
+  Open Source @ Siemens Conference 2022.
 * _[Coaty - A Framework for Collaborative
   IoT](/_assets/publications/2020-12_CoatyCollaborativeIoT.pdf){:target="_blank"}_.
   Motivational and introductory slide deck, Siemens AG, 12/2020.
