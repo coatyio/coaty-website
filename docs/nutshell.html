@@ -240,7 +240,7 @@ communication:</p>
 <span class="p">};</span>
 
 <span class="c1">// Bootstrap container</span>
-<span class="nx">Container</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">components</span><span class="p">,</span> <span class="nx">configuration</span><span class="p">);</span>
+<span class="nx">Container</span><span class="p">.</span><span class="nf">resolve</span><span class="p">(</span><span class="nx">components</span><span class="p">,</span> <span class="nx">configuration</span><span class="p">);</span>
 </code></pre></div></div>
 
 <h3 id="header-program-your-agents-application-logic">Program your agent’s application logic</h3>
@@ -253,19 +253,19 @@ communication:</p>
   <li>providing methods for local lifecycle management.</li>
 </ul>
 
-<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">SupportTaskController</span> <span class="kd">extends</span> <span class="nx">Controller</span> <span class="p">{</span>
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">SupportTaskController</span> <span class="kd">extends</span> <span class="nc">Controller</span> <span class="p">{</span>
 
     <span class="cm">/* Lifecycle methods called by framework */</span>
 
-    <span class="nx">onInit</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">onInit</span><span class="p">()</span> <span class="p">{</span>
         <span class="c1">// Define application-specific initializations here.</span>
     <span class="p">}</span>
 
-    <span class="nx">onCommunicationManagerStarting</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">onCommunicationManagerStarting</span><span class="p">()</span> <span class="p">{</span>
         <span class="c1">// Set up observations for incoming communication events here.</span>
     <span class="p">}</span>
 
-    <span class="nx">onCommunicationManagerStopping</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">onCommunicationManagerStopping</span><span class="p">()</span> <span class="p">{</span>
         <span class="c1">// Define application-specific cleanup tasks here.</span>
     <span class="p">}</span>
 
@@ -322,53 +322,53 @@ Using RxJS observables in a Coaty controller is as simple as that:</p>
 <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Observe all incoming Advertise events for Task objects with status 'Done' */</span>
 
 <span class="k">this</span><span class="p">.</span><span class="nx">communicationManager</span>
-    <span class="p">.</span><span class="nx">observeAdvertiseWithCoreType</span><span class="p">(</span><span class="dl">"</span><span class="s2">Task</span><span class="dl">"</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
-        <span class="nx">map</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span> <span class="k">as</span> <span class="nx">Task</span><span class="p">),</span>
-        <span class="nx">filter</span><span class="p">(</span><span class="nx">task</span> <span class="o">=&gt;</span> <span class="nx">task</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="nx">TaskStatus</span><span class="p">.</span><span class="nx">Done</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">observeAdvertiseWithCoreType</span><span class="p">(</span><span class="dl">"</span><span class="s2">Task</span><span class="dl">"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">pipe</span><span class="p">(</span>
+        <span class="nf">map</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span> <span class="k">as</span> <span class="nx">Task</span><span class="p">),</span>
+        <span class="nf">filter</span><span class="p">(</span><span class="nx">task</span> <span class="o">=&gt;</span> <span class="nx">task</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="nx">TaskStatus</span><span class="p">.</span><span class="nx">Done</span><span class="p">)</span>
     <span class="p">)</span>
-    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">task</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Task done:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">task</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+    <span class="p">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="nx">task</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Task done:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">task</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
     <span class="p">});</span>
 </code></pre></div></div>
 
 <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Discover machine information for a given machine ID */</span>
 
 <span class="k">this</span><span class="p">.</span><span class="nx">communicationManager</span>
-    <span class="p">.</span><span class="nx">publishDiscover</span><span class="p">(</span><span class="nx">DiscoverEvent</span><span class="p">.</span><span class="nx">withExternalId</span><span class="p">(</span><span class="nx">machineId</span><span class="p">))</span>
-    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
-        <span class="nx">take</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
-        <span class="nx">map</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span><span class="p">)</span>
-        <span class="nx">timeout</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">publishDiscover</span><span class="p">(</span><span class="nx">DiscoverEvent</span><span class="p">.</span><span class="nf">withExternalId</span><span class="p">(</span><span class="nx">machineId</span><span class="p">))</span>
+    <span class="p">.</span><span class="nf">pipe</span><span class="p">(</span>
+        <span class="nf">take</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+        <span class="nf">map</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span><span class="p">)</span>
+        <span class="nf">timeout</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
     <span class="p">)</span>
-    <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span>
+    <span class="p">.</span><span class="nf">subscribe</span><span class="p">(</span>
         <span class="nx">info</span> <span class="o">=&gt;</span> <span class="p">{</span>
-            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Machine info:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">info</span><span class="p">);</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Machine info:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">info</span><span class="p">);</span>
         <span class="p">},</span>
         <span class="nx">error</span> <span class="o">=&gt;</span> <span class="p">{</span>
             <span class="c1">// No response has been received within the given timeout period</span>
-            <span class="k">this</span><span class="p">.</span><span class="nx">logError</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Failed to discover machine</span><span class="dl">"</span><span class="p">);</span>
+            <span class="k">this</span><span class="p">.</span><span class="nf">logError</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Failed to discover machine</span><span class="dl">"</span><span class="p">);</span>
         <span class="p">});</span>
 </code></pre></div></div>
 
 <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Handle both discovered and advertised tasks in context as they are received */</span>
 
 <span class="kd">const</span> <span class="nx">discoveredTasks$</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">communicationManager</span>
-    <span class="p">.</span><span class="nx">publishDiscover</span><span class="p">(</span><span class="nx">DiscoverEvent</span><span class="p">.</span><span class="nx">withObjectTypes</span><span class="p">([</span><span class="dl">"</span><span class="s2">com.mycompany.myproject.SupportTask</span><span class="dl">"</span><span class="p">]))</span>
-    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
-        <span class="nx">filter</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">),</span>
-        <span class="nx">map</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span> <span class="k">as</span> <span class="nx">SupportTask</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">publishDiscover</span><span class="p">(</span><span class="nx">DiscoverEvent</span><span class="p">.</span><span class="nf">withObjectTypes</span><span class="p">([</span><span class="dl">"</span><span class="s2">com.mycompany.myproject.SupportTask</span><span class="dl">"</span><span class="p">]))</span>
+    <span class="p">.</span><span class="nf">pipe</span><span class="p">(</span>
+        <span class="nf">filter</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">),</span>
+        <span class="nf">map</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span> <span class="k">as</span> <span class="nx">SupportTask</span><span class="p">)</span>
     <span class="p">);</span>
 
 <span class="kd">const</span> <span class="nx">advertisedTasks$</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">communicationManager</span>
-    <span class="p">.</span><span class="nx">observeAdvertiseWithObjectType</span><span class="p">(</span><span class="dl">"</span><span class="s2">com.mycompany.myproject.SupportTask</span><span class="dl">"</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
-        <span class="nx">map</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span> <span class="k">as</span> <span class="nx">SupportTask</span><span class="p">)</span>
-        <span class="nx">filter</span><span class="p">(</span><span class="nx">task</span> <span class="o">=&gt;</span> <span class="nx">task</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">observeAdvertiseWithObjectType</span><span class="p">(</span><span class="dl">"</span><span class="s2">com.mycompany.myproject.SupportTask</span><span class="dl">"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">pipe</span><span class="p">(</span>
+        <span class="nf">map</span><span class="p">(</span><span class="nx">event</span> <span class="o">=&gt;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">object</span> <span class="k">as</span> <span class="nx">SupportTask</span><span class="p">)</span>
+        <span class="nf">filter</span><span class="p">(</span><span class="nx">task</span> <span class="o">=&gt;</span> <span class="nx">task</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">)</span>
     <span class="p">);</span>
 
-<span class="k">return</span> <span class="nx">merge</span><span class="p">(</span><span class="nx">discoveredTasks$</span><span class="p">,</span> <span class="nx">advertisedTasks$</span><span class="p">)</span>
-            <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">task</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="k">return</span> <span class="nf">merge</span><span class="p">(</span><span class="nx">discoveredTasks$</span><span class="p">,</span> <span class="nx">advertisedTasks$</span><span class="p">)</span>
+            <span class="p">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="nx">task</span> <span class="o">=&gt;</span> <span class="p">{</span>
                 <span class="c1">// Handle both discovered and advertised tasks as they are emitted...</span>
             <span class="p">});</span>
 </code></pre></div></div>
@@ -619,7 +619,7 @@ coding style guide, and complete framework API documentation.</p>
     <div class="container text-muted small">
         <div class="row pb-1">
             <div class="col-lg-5 text-center text-lg-left">
-                © Siemens 2018 - 2022
+                © Siemens 2018 - 2023
 
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <i class="far fa-envelope"></i>&nbsp;
