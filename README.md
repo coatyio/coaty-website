@@ -22,10 +22,10 @@ jekyll build
 
 Note that future posts will **not** be included in the build.
 
-To deploy the generated website to GitHub, simply push the git project to the
-remote repository at `https://github.com/coatyio/coaty-website` on the `master`
-branch. Then, the GitHub Pages website will be updated automatically from the
-`docs` folder.
+To deploy the generated website to GitHub, commit all changes and push the git
+project to the remote repository at `https://github.com/coatyio/coaty-website`
+on the `master` branch. Then, the GitHub Pages website will be updated
+automatically from the `docs` folder.
 
 ## Remarks
 

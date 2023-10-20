@@ -43,7 +43,7 @@ DE129274202
 
 #### Responsible according to Paragraph 18, Section 2 of the German MstV (Medienstaatsvertrag)
 
-Dr. Hubertus Hohl<br/>
+Dr. Markus Sauer<br/>
 Siemens Aktiengesellschaft<br/>
 Technology<br/>
 Otto-Hahn-Ring 6<br/>
